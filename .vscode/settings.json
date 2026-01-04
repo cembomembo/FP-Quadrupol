@@ -1,0 +1,160 @@
+{
+  // ===============================
+  // 🐍 Python configuration
+  // ===============================
+  // Works on Windows (Scripts) and Linux/Mac (bin)
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "strict",
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  // ===============================
+  // 🧹 Ruff (Python linter)
+  // ===============================
+  "ruff.enable": true,
+  "ruff.lintOnSave": true,
+  // ===============================
+  // ✍️ Editor behavior
+  // ===============================
+  "editor.formatOnSave": true,
+  "editor.parameterHints.enabled": false,
+  "editor.wordWrap": "on",
+  "editor.wrappingIndent": "same",
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "explorer.confirmDragAndDrop": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  // ===============================
+  // 📄 LaTeX Workshop
+  // ===============================
+  "latex-workshop.latex.outDir": "build",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+  "latex-workshop.view.outline.sync.viewer": true,
+  "latex-workshop.view.pdf.invertMode.enabled": "never",
+  "latex-workshop.view.pdf.invert": 0,
+  "latex-workshop.synctex.afterBuild.enabled": false,
+  "latex-workshop.message.update.show": false,
+  // ===============================
+  // 🔨 Build recipes (latexmk + biber)
+  // ===============================
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (pdf + biber)",
+      "tools": [
+        "latexmk",
+        "biber",
+        "latexmk"
+      ]
+    },
+    {
+      "name": "latexmk (pdf only)",
+      "tools": [
+        "latexmk"
+      ]
+    },
+    {
+      "name": "latexmk (lualatex)",
+      "tools": [
+        "lualatexmk"
+      ]
+    },
+    {
+      "name": "latexmk (xelatex)",
+      "tools": [
+        "xelatexmk"
+      ]
+    },
+    {
+      "name": "pdflatex -> bibtex -> pdflatex * 2",
+      "tools": [
+        "pdflatex",
+        "bibtex",
+        "pdflatex",
+        "pdflatex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "xelatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-xelatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "biber",
+      "command": "biber",
+      "args": [
+        "build/%DOCFILE%"
+      ]
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": [
+        "%DOCFILE%"
+      ]
+    }
+  ],
+  // ===============================
+  // 🗑️ File & folder exclusions
+  // ===============================
+  "files.exclude": {
+    "build": true,
+    "__pycache__": true,
+    "*.aux": true,
+    "*.log": true,
+    "*.out": true,
+    "*.synctex.gz": true
+  },
+  // ===============================
+  // 🚀 Miscellaneous
+  // ===============================
+  "workbench.startupEditor": "none",
+  "jupyter.askForKernelRestart": false
+}

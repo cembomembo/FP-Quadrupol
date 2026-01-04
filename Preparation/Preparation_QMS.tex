@@ -1,0 +1,144 @@
+\documentclass[a4paper]{article}
+
+% --- Page layout and spacing ---
+\usepackage[top=3cm, left=3.5cm, right=3.5cm, bottom=3cm]{geometry}
+\usepackage[utf8]{inputenc}      % input encoding
+\usepackage[T1]{fontenc}         % font encoding
+\usepackage[english]{babel}
+\usepackage{setspace}
+\setlength{\parindent}{0pt}      % paragraph indentation
+\setlength{\parskip}{0.8em}      % space between paragraphs
+\setstretch{1.2}                 % line spacing
+\usepackage{tocloft}             % section spacing in ToC
+\setlength{\cftbeforesecskip}{10pt}
+\setlength{\cftbeforesubsecskip}{4pt}
+\usepackage{titlesec}            % section title spacing
+\titlespacing*{\section}{0pt}{5.0ex plus 1ex minus .2ex}{1.0ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{3.0ex plus .5ex minus .2ex}{0.8ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{2.0ex plus .5ex minus .2ex}{0.8ex plus .2ex}
+
+% --- Math and symbols ---
+\usepackage{amsmath, amssymb}    % standard math
+\usepackage{empheq}              % boxed equations etc.
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\sgn}{sgn}
+\usepackage{bm}                  % bold math symbols
+\usepackage{cancel}              % strikeout in math
+\usepackage{siunitx}             % proper units
+\renewcommand{\arraystretch}{0.7}
+
+% --- Graphics and floats ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[justification=centering]{caption}
+\usepackage{subcaption}
+\captionsetup[figure]{font=small}
+
+% --- Layout helpers ---
+\usepackage{boxedminipage}
+\usepackage{enumitem}
+\usepackage{afterpage}
+\usepackage{changepage}
+\usepackage{pdfpages}           % include external PDFs
+\usepackage{esvect}             % nice vector arrows
+\usepackage{hyperref}           % hyperlinks
+
+% --- Bibliography setup ---
+\usepackage{csquotes}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{references.bib}
+
+% --- Fonts ---
+\usepackage{lmodern}            % Computer Modern look across TeX distros
+
+
+% --- Title page ---
+\title{\textbf{Quadrupol Mass Spectrometer}}
+\author{
+  \\Preparation Report \\\\\\\\\\\\
+  \textbf{Cem Boyaci} \\
+  cemb93@zedat.fu-berlin.de \\\\\\
+  \textbf{Javier Bellido Roldán}\\
+  bellidoroj98@zedat.fu-berlin.de \\\\\\
+  \textbf{Leon Goldammer} \\
+  lg4278fu@zedat.fu-berlin.de \\\\
+}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{}
+\begin{center}
+\vspace{3cm}
+Tutor: Kati Hubmann \\[1cm]
+\textbf{Fortgeschrittenenpraktikum, WS 2025/2026}\\
+Berlin, 12.01.2026\\
+Freie Universität Berlin\\
+Fachbereich Physik
+\end{center}
+
+
+% --- Table of contents ---
+\clearpage
+\renewcommand*\contentsname{\huge Contents}
+{
+  \pagenumbering{gobble}
+  \tableofcontents
+  \clearpage
+}
+\pagenumbering{arabic}
+
+
+% --- Introduction ---
+\newpage
+\setcounter{page}{1}
+
+\section{Introduction}
+
+xxx
+
+
+% --- Physical Principles ---
+\section{Physical Principles}
+
+\subsection{xxx}
+
+xxx
+
+\subsection{xxx}
+
+xxx
+
+
+% --- Experimental Setup ---
+\section{Experimental Setup}
+
+xxx
+
+\subsection{xxx}
+
+xxx
+
+
+% --- Procedure ---
+\section{Procedure}
+
+\subsection{xxx}
+
+xxx
+
+
+% --- References ---
+\newpage
+\setstretch{1.0}
+\printbibliography[heading=bibintoc]
+
+\section*{Author's Note}
+AI-based writing and programming tools were used in a supporting role to refine the wording of this report and to assist in formatting Python and LaTeX code.
+All scientific analysis, data evaluation, and interpretation were carried out independently by the authors.
+
+
+\end{document}

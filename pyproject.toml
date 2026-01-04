@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fp-isolatorkristall"
+version = "0.1.0"
+description = "Analysis of spectra from isolator crystal experiment"
+authors = [
+    {name = "Javier Bellido", email = "javier.bellido@example.com"}
+]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "jupyter",
+    "pandas"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "flake8"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["resources*", "Evaluation*", "Preparation*"]
+
+[tool.tex-fmt]
+wrap = false
+tabsize = 4
+tabchar = "space"

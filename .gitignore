@@ -1,0 +1,55 @@
+# ======================================
+# 🐍 Python
+# ======================================
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.mypy_cache/
+pytest_cache/
+.ipynb_checkpoints/
+fp_isolatorkristall.egg-info
+
+# Virtual envs created by different tools
+env/
+venv/
+ENV/
+
+# ======================================
+# 📄 LaTeX
+# ======================================
+build/
+latexmkrc
+
+# Auxiliary files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.synctex
+*.fls
+*.fdb_latexmk
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.lof
+*.lot
+*.ilg
+*.idx
+*.ind
+*.nav
+*.snm
+
+# ======================================
+# 🧪 Temporary & system files
+# ======================================
+.DS_Store
+Thumbs.db
+
+# ======================================
+# 🔐 Environment / secrets
+# ======================================
+.env
