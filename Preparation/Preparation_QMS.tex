@@ -142,12 +142,55 @@ Due to the relatively high electron energies, this process often transfers exces
 
 As a consequence, a measured mass spectrum generally consists of multiple peaks corresponding to different ionic fragments of the same molecule.
 These fragmentation patterns are characteristic for a given species and can be used to identify unknown gases or gas mixtures.
-Under typical operating conditions of electron impact ionization, singly charged ions ($z = 1$) dominate, so that the measured mass-to-charge ratio $m/z$ closely corresponds to the molecular or fragment mass $m$.
-Multiply charged ions may occur but are significantly less abundant and usually play a minor role in residual gas analysis \cite{jousten_ellefson_partialdruckmessung_2017}.
+Under typical operating conditions of electron impact ionization, singly charged ions ($z = 1$) are predominantly observed, so that the measured mass-to-charge ratio $m/z$ closely corresponds to the molecular or fragment mass $m$.
+Multiply charged ions may occur but usually do not play a dominant role in residual gas analysis~\cite{demtroeder_atome_molekuele_2005}.
+
 
 \subsection{Vacuum Requirements and Mean Free Path}
 
+The operation of a mass spectrometer requires high vacuum conditions in order to ensure collision-free motion of ions between the ion source, the mass analyzer, and the detector.
+At elevated pressures, frequent collisions with background gas molecules would disturb the ion trajectories, lead to energy loss and scattering, and thereby degrade mass resolution and transmission.
+Vacuum conditions are therefore an essential prerequisite for reliable mass-selective filtering and accurate interpretation of measured mass spectra.
+
+The relevance of vacuum quality can be quantified by the mean free path $\lambda$ of gas particles, which describes the average distance traveled between successive collisions.
+For an ideal gas, the mean free path is given by
+\[
+\lambda = \frac{k_{\mathrm{B}} T}{\sqrt{2}\,\pi d^{2} p},
+\]
+where $k_{\mathrm{B}}$ is the Boltzmann constant, $T$ the temperature, $d$ the effective molecular diameter, and $p$ the gas pressure.
+A sufficiently large mean free path compared to the characteristic dimensions of the mass spectrometer is required to ensure that ions can traverse the analyzer region without significant collisional perturbations.
+
+Quadrupole mass spectrometers are therefore typically operated in the high to ultra-high vacuum regime.
+In residual gas analysis, pressures on the order of $10^{-6}\,\mathrm{mbar}$ or lower are commonly required, corresponding to mean free paths that exceed the length of the quadrupole rods by several orders of magnitude~\cite{jousten_ellefson_partialdruckmessung_2017}.
+
 \subsection{Principle of the Quadrupole Mass Filter}
+
+The quadrupole mass filter separates ions according to their mass-to-charge ratio by means of a time-dependent electric quadrupole field.
+It consists of four parallel metallic rods arranged symmetrically around the ion beam axis, with opposite rods electrically connected.
+Ideally, the electrodes would have hyperbolic cross sections in order to generate a perfect quadrupole field, but in practice cylindrical rods are used as a good approximation~\cite{demtroeder_atome_molekuele_2005}.
+
+A static electric quadrupole potential has a saddle-shaped structure.
+This means that ions are focused toward the axis in one transverse direction, while they are simultaneously defocused in the perpendicular direction.
+In other words, static quadrupole fields can act like a lens in one plane, but they necessarily act like an anti-lens in the other plane.
+Therefore, purely static operation cannot provide stable confinement in both transverse directions at the same time, and ions are inevitably driven into the rods.
+Stable transmission through the quadrupole is therefore only achieved by superimposing a static (DC) voltage with an alternating radio-frequency (RF) voltage applied to the rod pairs with opposite polarity.
+
+The superposition of DC and RF voltages produces a time-dependent electric field in which ions perform oscillatory motion perpendicular to the flight direction.
+Depending on their mass-to-charge ratio, these oscillations can either remain bounded or grow in amplitude until the ion collides with one of the rods.
+Only ions whose trajectories remain stable in both transverse directions are able to pass through the quadrupole and reach the detector, while all others are filtered out.
+This principle is illustrated schematically in Fig.~\ref{fig:qmf_principle}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{../resources/figures/qmf_principle.png}
+  \caption{Schematic illustration of ion motion in a QMF.
+  Ions with suitable mass-to-charge ratios exhibit stable oscillatory trajectories and are transmitted to the detector, while ions with unstable motion are lost to the electrodes~\cite{shimadzu_mass_analyzers}.}
+  \label{fig:qmf_principle}
+\end{figure}
+
+By varying the applied DC and RF voltages while keeping their ratio constant, the QMF can be operated as a mass-selective device.
+In this mode, ions are transmitted sequentially according to their mass-to-charge ratio, allowing a mass spectrum to be recorded.
+The detailed conditions for stable and unstable ion motion are described by the equations of motion in the quadrupole field and are discussed in the following subsection.
 
 \subsection{Ion Motion in the Quadrupole Field}
 
