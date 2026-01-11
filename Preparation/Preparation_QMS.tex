@@ -98,19 +98,62 @@ Fachbereich Physik
 
 \section{Introduction}
 
-xxx
+Mass spectrometry is a versatile analytical technique used to investigate the composition of atomic and molecular species and plays an important role in many areas of modern science.
+In physics and chemistry, it is widely applied whenever gas mixtures or residual gases need to be analyzed with high sensitivity and selectivity.
+Among the various types of mass spectrometers, the quadrupole mass spectrometer stands out due to its compact design, robustness, and suitability for operation in high and ultra-high vacuum environments.
+For this reason, it has become a standard tool in vacuum diagnostics, residual gas analysis, and experimental research setups~\cite{jousten_ellefson_partialdruckmessung_2017}.
+
+In this experiment, gas samples are ionized, mass-selected by a quadrupole mass filter, and detected as an electrical signal, resulting in characteristic mass spectra.
+Different gases and gas mixtures are examined, allowing their composition and fragmentation patterns to be analyzed.
+In addition, the influence of experimental parameters such as applied voltages, pressure conditions, and operating modes on mass resolution, transmission, and signal quality is investigated.
+The measurements provide a practical basis for the interpretation of mass spectra and the assessment of the performance limits of a quadrupole mass spectrometer.
 
 
 % --- Physical Principles ---
 \section{Physical Principles}
 
-\subsection{xxx}
+In this section, the physical principles underlying the operation of a quadrupole mass spectrometer are outlined.
+The discussion follows the path of the particles through the instrument, from ionization and transport under vacuum conditions to mass-selective filtering, detection, and the interpretation of the resulting mass spectra.
 
-xxx~\cite{QMSAnleitung}
+\subsection{Mass Spectrometry and Ionization}
 
-\subsection{xxx}
+Mass spectrometry is an analytical technique used to investigate the composition of atomic and molecular species by separating charged particles according to their mass-to-charge ratio.
+Since neutral atoms and molecules cannot be manipulated by electric fields, the species under investigation must first be converted into ions.
+The measured quantity in a mass spectrometer is therefore not the mass itself, but the ratio of mass to charge $m/z$, where $m$ denotes the ion mass and $z$ its charge state in units of the elementary charge.
+Different ions with the same mass but different charge states are thus separated at different $m/z$ values, while ions of different mass may appear at similar $m/z$ positions if their charge states differ.
 
-xxx
+A mass spectrometer generally consists of three essential components: an ion source, a mass-selective analyzer, and an ion detector.
+In the ion source, neutral gas particles are ionized and accelerated into the analyzer region.
+The analyzer separates the ions according to their $m/z$ value using electric or magnetic fields, and the transmitted ions are finally detected and converted into an electrical signal.
+A schematic overview of these basic components is shown in Fig.~\ref{fig:mass_spectrometer}.
+In the present experiment, mass selection is performed by a quadrupole mass filter (QMF) operating with time-dependent electric fields~\cite{QMSAnleitung}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{../resources/figures/mass_spectrometer.png}
+  \caption{Schematic overview of the main components of a mass spectrometer, consisting of an ionization source, a mass analyzer, and an ion detector, operated under vacuum conditions~\cite{siuzdak_ms_ionization}.}
+  \label{fig:mass_spectrometer}
+\end{figure}
+
+Ionization in the quadrupole mass spectrometer used in this experiment is achieved by electron impact ionization.
+Electrons are emitted from a heated filament by thermionic emission and accelerated to energies typically on the order of several tens of electronvolts.
+When these electrons collide with neutral gas molecules, they can remove an electron and thereby produce positive ions.
+Due to the relatively high electron energies, this process often transfers excess energy to the molecule, leading to the formation of fragment ions in addition to the molecular parent ion.
+
+As a consequence, a measured mass spectrum generally consists of multiple peaks corresponding to different ionic fragments of the same molecule.
+These fragmentation patterns are characteristic for a given species and can be used to identify unknown gases or gas mixtures.
+Under typical operating conditions of electron impact ionization, singly charged ions ($z = 1$) dominate, so that the measured mass-to-charge ratio $m/z$ closely corresponds to the molecular or fragment mass $m$.
+Multiply charged ions may occur but are significantly less abundant and usually play a minor role in residual gas analysis \cite{jousten_ellefson_partialdruckmessung_2017}.
+
+\subsection{Vacuum Requirements and Mean Free Path}
+
+\subsection{Principle of the Quadrupole Mass Filter}
+
+\subsection{Ion Motion in the Quadrupole Field}
+
+\subsection{Stability Diagram and Mass Selection}
+
+\subsection{Detection and Mass Spectra}
 
 
 % --- Experimental Setup ---
