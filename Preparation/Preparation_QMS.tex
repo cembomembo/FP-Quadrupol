@@ -323,6 +323,58 @@ This is illustrated in Fig.~\ref{fig:qmf_resolution}, where scanning along the w
 
 \subsection{Detection and Mass Spectra}
 
+After the quadrupole has filtered the ion beam, the remaining ions are collected by a detector and converted into an electrical signal.
+What we ultimately record is a ``mass spectrum'', i.e.\ the detector signal as a function of the selected mass-to-charge ratio $m/z$.
+Ideally, the spectrum would show clean, well-separated peaks that can be assigned to gas species.
+In practice, many peaks are small, some overlap, and the signal often sits on a nonzero background, so detector choice and scan settings determine how reliably weak peaks can still be distinguished from noise.
+
+In the QMS, the detector signal is an ion current.
+It can either be measured directly with a Faraday cup or first amplified with an electron multiplier and then measured as an electron current.
+A Faraday cup is conceptually simple and very linear, but for very small ion currents the measurement becomes noise-limited.
+An electron multiplier increases the current by a large factor (gain), which makes weak peaks much easier to see, but the gain can drift and the amplification adds noise and saturation effects.
+In other words, the Faraday cup is preferable when signals are large and linearity is important, whereas the multiplier is useful when the goal is to detect very small signals at all.
+
+Even before interpreting which gases are present, it helps to remember that the QMF does not transmit an infinitely sharp mass value, but always a finite mass window around it.
+In an idealized picture this window would be perfectly rectangular, yet real instruments produce broadened and often slightly asymmetric peaks.
+Two important reasons are the finite electrode spacing (so transmission depends on the ion’s initial position and angle) and the finite rod length (so some ``almost unstable'' ions still make it through before hitting a rod).
+This difference between an ideal and a realistic peak shape is sketched in Fig.~\ref{fig:qmf_peakshape}.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.86\linewidth]{../resources/figures/qmf_peakshape.png}
+  \caption{Idealized versus realistic peak shapes in a QMF.
+  Finite electrode spacing and finite rod length broaden the transmission window, turning an ideal rectangular peak into a rounded peak with finite width $\Delta m$~\cite{rwth_mass_spectrometry_2024}.}
+  \label{fig:qmf_peakshape}
+\end{figure}
+
+A common practical definition of mass resolution is $R=m/\Delta m$, where $\Delta m$ is the full width at half maximum (FWHM) of a peak.
+Higher resolution (smaller $\Delta m$) usually means lower transmission, because fewer ions remain stable over the full rod length.
+So there is a trade-off: higher resolution separates neighboring masses better but reduces signal, whereas higher transmission gives stronger scans but increases overlap and peak tails.
+
+Peak positions indicate which ions were transmitted, while peak heights (or areas) reflect how many ions reached the detector.
+In residual gas analysis, intensity is often used as a proxy for the \emph{partial pressure} of a gas component, but only after accounting for background and sensitivity.
+A common step is therefore to record a background spectrum (``rest gas spectrum'') and subtract it, especially when small peaks sit on the shoulders of larger ones.
+
+For identifying gases, the key point is that electron impact ionization produces fragment ions in addition to the molecular parent ion.
+A single gas therefore appears as a characteristic pattern of multiple peaks, so identification is typically pattern-based rather than based on one line.
+In vacuum systems, water-related peaks around $m/z\approx 18$ and air-related peaks around $m/z\approx 28,32,40$ are common starting points, but assignments become reliable only once the accompanying peaks match the expected fingerprint.
+
+Figure~\ref{fig:acetone_spectrum} illustrates this with a reference spectrum of acetone.
+Instead of a single ``acetone line'', the molecular ion appears together with several prominent fragments, and the overall combination makes the identification robust.
+
+Finally, scan settings introduce a second trade-off that shows up as noise.
+Short dwell times give faster overview scans but worsen detection limits, while longer dwell times (and/or higher multiplier gain) improve weak-peak visibility but slow the measurement.
+A useful workflow is therefore to start with a broad overview scan at high transmission and then re-measure relevant ranges with higher resolution and more careful scan settings to separate overlaps and make assignments reliable.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{../resources/figures/acetone_spectrum.png}
+  \caption{Example electron-impact mass spectrum of acetone illustrating parent and fragment peaks, as used for pattern-based identification in residual gas analysis~\cite{QMSAnleitung}.}
+  \label{fig:acetone_spectrum}
+\end{figure}
+
 
 % --- Experimental Setup ---
 \section{Experimental Setup}
