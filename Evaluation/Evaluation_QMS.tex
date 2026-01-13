@@ -62,7 +62,7 @@
 
     % Title
     \vspace*{1cm}
-    {\LARGE \textbf{Quadrupol Mass Spectrometer}}\\[1.2cm]
+    {\LARGE \textbf{Quadrupole Mass Spectrometer}}\\[1.2cm]
 
     % Subtitle
     {\large Evaluation Report}\\[2cm]
@@ -107,14 +107,281 @@
 
 \section{Introduction}
 
-xxx
+Mass spectrometry is a versatile analytical technique used to investigate the composition of atomic and molecular species and plays an important role in many areas of modern science.
+In physics and chemistry, it is widely applied whenever gas mixtures or residual gases need to be analyzed with high sensitivity and selectivity.
+Among the various types of mass spectrometers, the quadrupole mass spectrometer stands out due to its compact design, robustness, and suitability for operation in high and ultra-high vacuum environments.
+For this reason, it has become a standard tool in vacuum diagnostics, residual gas analysis, and experimental research setups~\cite{jousten_ellefson_partialdruckmessung_2017}.
+
+In this experiment, gas samples are ionized, mass-selected by a quadrupole mass filter, and detected as an electrical signal, resulting in characteristic mass spectra.
+Different gases and gas mixtures are examined, allowing their composition and fragmentation patterns to be analyzed.
+In addition, the influence of experimental parameters such as applied voltages, pressure conditions, and operating modes on mass resolution, transmission, and signal quality is investigated.
+The measurements provide a practical basis for the interpretation of mass spectra and the assessment of the performance limits of a quadrupole mass spectrometer.
 
 % --- Physical Principles ---
 \section{Physical Principles}
 
-\subsection{xxx}
+In this section, the physical principles underlying the operation of a quadrupole mass spectrometer (QMS) are outlined.
+The discussion follows the path of the particles through the instrument, from ionization and transport under vacuum conditions to mass-selective filtering, detection, and the interpretation of the resulting mass spectra.
 
-xxx
+\subsection{Mass Spectrometry and Ionization}
+
+Mass spectrometry is an analytical technique used to investigate the composition of atomic and molecular species by separating charged particles according to their mass-to-charge ratio.
+Since neutral atoms and molecules cannot be manipulated by electric fields, the species under investigation must first be converted into ions.
+The measured quantity in a mass spectrometer is therefore not the mass itself, but the ratio of mass to charge $m/z$, where $m$ denotes the ion mass and $z$ its charge state in units of the elementary charge.
+Different ions with the same mass but different charge states are thus separated at different $m/z$ values, while ions of different mass may appear at similar $m/z$ positions if their charge states differ.
+
+A mass spectrometer generally consists of three essential components: an ion source, a mass-selective analyzer, and an ion detector.
+In the ion source, neutral gas particles are ionized and accelerated into the analyzer region.
+The analyzer separates the ions according to their $m/z$ value using electric or magnetic fields, and the transmitted ions are finally detected and converted into an electrical signal.
+A schematic overview of these basic components is shown in Fig.~\ref{fig:mass_spectrometer}.
+In the present experiment, mass selection is performed by a quadrupole mass filter (QMF) operating with time-dependent electric fields~\cite{QMSAnleitung}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{../resources/figures/mass_spectrometer.png}
+  \caption{Schematic overview of the main components of a mass spectrometer, consisting of an ionization source, a mass analyzer, and an ion detector, operated under vacuum conditions~\cite{siuzdak_ms_ionization}.}
+  \label{fig:mass_spectrometer}
+\end{figure}
+
+Ionization in the QMS used in this experiment is achieved by electron impact ionization.
+Electrons are emitted from a heated filament by thermionic emission and accelerated to energies typically on the order of several tens of electronvolts.
+When these electrons collide with neutral gas molecules, they can remove an electron and thereby produce positive ions.
+Due to the relatively high electron energies, this process often transfers excess energy to the molecule, leading to the formation of fragment ions in addition to the molecular parent ion.
+
+As a consequence, a measured mass spectrum generally consists of multiple peaks corresponding to different ionic fragments of the same molecule.
+These fragmentation patterns are characteristic for a given species and can be used to identify unknown gases or gas mixtures.
+Under typical operating conditions of electron impact ionization, singly charged ions ($z = 1$) are predominantly observed, so that the measured mass-to-charge ratio $m/z$ closely corresponds to the molecular or fragment mass $m$.
+Multiply charged ions may occur but usually do not play a dominant role in residual gas analysis~\cite{demtroeder_atome_molekuele_2005}.
+
+\subsection{Vacuum Requirements and Mean Free Path}
+
+The operation of a mass spectrometer requires high vacuum conditions in order to ensure collision-free motion of ions between the ion source, the mass analyzer, and the detector.
+At elevated pressures, frequent collisions with background gas molecules would disturb the ion trajectories, lead to energy loss and scattering, and thereby degrade mass resolution and transmission.
+Vacuum conditions are therefore an essential prerequisite for reliable mass-selective filtering and accurate interpretation of measured mass spectra.
+
+The relevance of vacuum quality can be quantified by the mean free path $\lambda$ of gas particles, which describes the average distance traveled between successive collisions.
+For an ideal gas, the mean free path is given by
+\[
+  \lambda = \frac{k_{\mathrm{B}} T}{\sqrt{2}\,\pi d^{2} p},
+\]
+where $k_{\mathrm{B}}$ is the Boltzmann constant, $T$ the temperature, $d$ the effective molecular diameter, and $p$ the gas pressure~\cite{wiki_mean_free_path}.
+A sufficiently large mean free path compared to the characteristic dimensions of the mass spectrometer is required to ensure that ions can traverse the analyzer region without significant collisional perturbations.
+
+Quadrupole mass spectrometers are therefore typically operated in the high to ultra-high vacuum regime.
+In residual gas analysis, pressures on the order of $10^{-6}\,\mathrm{mbar}$ or lower are commonly required, corresponding to mean free paths that far exceed the length of the quadrupole rods~\cite{jousten_ellefson_partialdruckmessung_2017}.
+
+\subsection{Principle of the Quadrupole Mass Filter}
+
+The QMF separates ions according to their mass-to-charge ratio by means of a time-dependent electric quadrupole field.
+It consists of four parallel metallic rods arranged symmetrically around the ion beam axis, with opposite rods electrically connected.
+Ideally, the electrodes would have hyperbolic cross sections in order to generate a perfect quadrupole field, but in practice cylindrical rods are used as a good approximation~\cite{demtroeder_atome_molekuele_2005}.
+
+A static electric quadrupole potential has a saddle-shaped structure.
+This means that ions are focused toward the axis in one transverse direction, while they are simultaneously defocused in the perpendicular direction.
+In other words, static quadrupole fields can act like a lens in one plane, but they necessarily act like an anti-lens in the other plane.
+Therefore, purely static operation cannot provide stable confinement in both transverse directions at the same time, and ions are inevitably driven into the rods.
+Stable transmission through the quadrupole is therefore only achieved by superimposing a static (DC) voltage with an alternating radio-frequency (RF) voltage applied to the rod pairs with opposite polarity.
+
+The superposition of DC and RF voltages produces a time-dependent electric field in which ions perform oscillatory motion perpendicular to the flight direction.
+Depending on their mass-to-charge ratio, these oscillations can either remain bounded or grow in amplitude until the ion collides with one of the rods.
+Only ions whose trajectories remain stable in both transverse directions are able to pass through the quadrupole and reach the detector, while all others are filtered out.
+This principle is illustrated schematically in Fig.~\ref{fig:qmf_principle}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{../resources/figures/qmf_principle.png}
+  \caption{Schematic illustration of ion motion in a QMF.
+  Ions with suitable mass-to-charge ratios exhibit stable oscillatory trajectories and are transmitted to the detector, while ions with unstable motion are lost to the electrodes~\cite{shimadzu_mass_analyzers}.}
+  \label{fig:qmf_principle}
+\end{figure}
+
+By varying the applied DC and RF voltages while keeping their ratio constant, the QMF can be operated as a mass-selective device.
+In this mode, ions are transmitted sequentially according to their mass-to-charge ratio, allowing a mass spectrum to be recorded.
+The detailed conditions for stable and unstable ion motion are described by the equations of motion in the quadrupole field and are discussed in the following subsection.
+
+\subsection{Ion Motion in the Quadrupole Field}
+
+After their creation in the ion source, ions are extracted by an electric field and accelerated toward the quadrupole, which turns their initially random thermal motion into a directed beam along the rod axis.
+The corresponding acceleration voltage sets the kinetic energy of the ions and therefore largely determines their forward velocity through the instrument.
+
+Inside an ideal quadrupole field, the electric forces act mainly perpendicular to the flight direction, so the ions are continuously steered sideways while their forward motion along the axis remains approximately uniform.
+In the high-vacuum regime considered here, collisions are rare on the flight path, so the ions essentially coast through the rod system with a nearly constant axial speed that is set by the extraction energy.
+
+To describe the transverse dynamics, we choose the coordinate system such that the rods are aligned with the $z$-axis and the transverse coordinates are $(x,y)$.
+The electric potential in the interior of an ideal quadrupole can then be written as
+\[
+  \Phi(x,y,t)=\frac{U+V\cos(\omega t)}{2r_0^2}\left(x^2-y^2\right),
+\]
+where $U$ is the applied DC voltage, $V$ the RF amplitude, and $\omega$ the angular frequency of the RF field~\cite{demtroeder_atome_molekuele_2005}.
+The parameter $r_0$ denotes the characteristic field radius, i.e.\ the distance from the axis to the electrode surface in the ideal hyperbolic geometry, so that opposite electrodes are separated by $2r_0$.
+This geometrical definition of $r_0$, as well as the electrode arrangement that generates the quadrupole field, is illustrated in Fig.~\ref{fig:qmf_hyperbolic_geometry}.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{../resources/figures/qmf_hyperbolic_geometry.png}
+  \caption{Ideal quadrupole field generated by hyperbolic electrodes.
+    (a) Equipotential lines in the transverse $(x,y)$ plane.
+  (b) Schematic cross section of the four hyperbolic electrodes, showing the characteristic field radius $r_0$ and the electrode spacing $2r_0$. Adapted from~\cite{demtroeder_atome_molekuele_2005}.}
+  \label{fig:qmf_hyperbolic_geometry}
+\end{figure}
+
+The saddle-shaped quadrupole potential explains why focusing and defocusing occur simultaneously in perpendicular directions.
+A visualization of the saddle potential and its equipotential structure in the transverse plane is shown in Fig.~\ref{fig:qmf_saddle_potential}.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{../resources/figures/qmf_saddle_potential.png}
+  \caption{Example visualization of the saddle-shaped quadrupole potential and its equipotential structure in the transverse plane.
+  The curvature has opposite sign in $x$- and $y$-direction, which is the origin of the alternating focusing and defocusing behavior~\cite{rwth_mass_spectrometry_2024}.}
+  \label{fig:qmf_saddle_potential}
+\end{figure}
+
+The ion motion follows from Newton's equation with the electric force $\bm{F}=Q\bm{E}=-Q\nabla\Phi$, where $Q=z_{\mathrm{ch}}e$ is the ion charge and $z_{\mathrm{ch}}$ is the charge state (this $z_{\mathrm{ch}}$ is the same quantity that appears in $m/z$, not to be confused with the spatial coordinate $z$).
+Since $\Phi$ is independent of the axial coordinate $z$, the quadrupole field does not provide a direct accelerating or decelerating force along the flight direction, but it strongly affects the transverse motion.
+Inserting the potential yields two decoupled equations for $x(t)$ and $y(t)$,
+\begin{equation}
+  \ddot{x}+\frac{Q}{m r_0^2}\left(U+V\cos(\omega t)\right)x=0,
+  \qquad
+  \ddot{y}-\frac{Q}{m r_0^2}\left(U+V\cos(\omega t)\right)y=0.
+  \label{eq:qmf_eom_xy}
+\end{equation}
+
+The opposite signs are the mathematical expression of focusing and defocusing.
+A restoring force has the form $\ddot{x}=-\Omega^2 x$ and produces bounded oscillations, as in a harmonic oscillator.
+A defocusing force corresponds to $\ddot{y}=+\Omega^2 y$ and leads to runaway solutions whose amplitude grows rapidly, similar to an inverted oscillator.
+Therefore, a purely static quadrupole field ($V=0$) can never confine ions in both transverse directions at the same time, because one coordinate is always unstable.
+
+The role of the RF voltage is that it repeatedly alternates the focusing and defocusing action in time.
+For certain combinations of $U$, $V$, and $\omega$, this rapid alternation leads to a net dynamic stabilization, so that the transverse oscillations remain bounded in both directions and the ion can pass through the rod system without touching an electrode.
+For other parameter combinations, the RF field pumps energy into the transverse motion (a form of parametric instability), and the oscillation amplitude grows until the ion is lost to a rod.
+An intuitive, non-mathematical explanation of this is given in~\cite{nizkorodov_qms_youtube_2009}.
+
+Introducing the dimensionless time $\tau=\omega t/2$, Eq.~\eqref{eq:qmf_eom_xy} can be written in the standard Mathieu form,
+\begin{equation}
+  \frac{d^2 x}{d\tau^2}+\left(a-2q\cos(2\tau)\right)x=0,
+  \qquad
+  \frac{d^2 y}{d\tau^2}+\left(-a+2q\cos(2\tau)\right)y=0,
+  \label{eq:mathieu_xy}
+\end{equation}
+
+with the dimensionless parameters
+\begin{equation}
+  a=\frac{4QU}{m r_0^2\omega^2},
+  \qquad
+  q=\frac{2QV}{m r_0^2\omega^2}.
+  \label{eq:mathieu_aq}
+\end{equation}
+
+The parameters $(a,q)$ summarize how strongly the electric field acts on a given ion species.
+For fixed instrument settings $(U,V,\omega,r_0)$, they scale with the ratio $Q/m$, so that different $m/z$ values correspond to different points in the $(a,q)$ plane.
+Only in certain regions of this parameter plane do the Mathieu solutions stay bounded in both transverse directions, which physically means that the ion oscillations remain finite and transmission through the quadrupole is possible.
+
+\subsection{Stability Diagram and Mass Selection}
+
+The Mathieu equations in Eq.~\eqref{eq:mathieu_xy} admit either stable or unstable solutions depending on the parameters $(a,q)$.
+A trajectory is called stable if the transverse oscillations remain bounded, meaning that the ion stays within the free aperture between the rods over the full flight time.
+If the solution is unstable, the oscillation amplitude grows and the ion eventually collides with an electrode and is removed from the transmitted ion beam.
+
+The stability properties are commonly summarized in a stability diagram in the $(a,q)$ plane, where the regions of bounded solutions are indicated.
+Only ions whose parameters lie inside a stability region in both transverse directions are transmitted through the quadrupole.
+This concept is illustrated in Fig.~\ref{fig:qmf_stability_demtroeder}.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\linewidth]{../resources/figures/qmf_mathieu.png}
+  \caption{Mathieu stability diagram and working line principle for a QMF.
+    (a) Overview of stability regions in the $(a,b)$ plane, where stability is obtained only if the motion remains bounded in both transverse directions.
+    (b) Enlarged view of the first stability region, which is used for mass filtering, together with a straight working line through the origin.
+  In the notation of the source, the horizontal axis is labeled $b$ (corresponding to $q$ in this report), and the second transverse coordinate is labeled $z$ (corresponding to $y$ in this report)~\cite{demtroeder_atome_molekuele_2005}.}
+  \label{fig:qmf_stability_demtroeder}
+\end{figure}
+
+Mass selection is achieved by operating the quadrupole at parameter values close to the boundary of the first stability region.
+Using Eq.~\eqref{eq:mathieu_aq}, the stability parameters scale as $a\propto QU/m$ and $q\propto QV/m$ for fixed $(r_0,\omega)$.
+For a fixed ion species, changing $U$ and $V$ moves the operating point in the stability diagram.
+In particular, keeping the ratio of DC to RF amplitude constant implies
+\[
+  \frac{a}{q}=\frac{2U}{V}=\text{const.},
+\]
+so that the operating point follows a straight line through the origin.
+This line is commonly referred to as the working line, and it is shown in Fig.~\ref{fig:qmf_stability_demtroeder}b.
+
+A mass spectrum is recorded by scanning $U$ and $V$ simultaneously while maintaining a constant ratio $U/V$.
+Only ions whose $(a,q)$ values lie inside the chosen stability region at a given moment are transmitted to the detector, while ions outside the region are rejected by unstable motion.
+Since both $a$ and $q$ are proportional to $Q/m$, heavier ions require higher voltages to reach the same stability conditions.
+Therefore, scanning the voltages corresponds to scanning the transmitted mass-to-charge ratio $m/z$.
+
+The position of the working line relative to the stability boundaries determines the trade-off between resolution and transmission.
+Choosing a working line closer to the tip of the stability region narrows the transmitted $m/z$ window and increases resolution, but reduces the fraction of ions that remain stable over the full rod length, leading to lower transmission and weaker signal.
+This is illustrated in Fig.~\ref{fig:qmf_resolution}, where scanning along the working line selects different ion masses, while the transmitted mass interval $\Delta m$ depends on the line slope.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{../resources/figures/qmf_resolution.png}
+  \caption{Working line principle and resolution in a QMF.
+    Scanning $U$ and $V$ along a straight working line transmits different ion masses $m_1<m_2<m_3$, while the transmitted interval $\Delta m$ depends on the slope.
+  In the notation of the source, the voltages are labeled $U_{AC}$ and $U_{DC}$ (corresponding to $V$ and $U$ in this report), and the working line condition is written as $U_{DC}/U_{AC} = a_x/(2b_x)$ (corresponding to $a/q = 2U/V$ in this report)~\cite{rwth_mass_spectrometry_2024}.}
+  \label{fig:qmf_resolution}
+\end{figure}
+
+\subsection{Detection and Mass Spectra}
+\label{sec:massspectra}
+
+After the quadrupole has filtered the ion beam, the remaining ions are collected by a detector and converted into an electrical signal.
+What we ultimately record is a ``mass spectrum'', i.e.\ the detector signal as a function of the selected mass-to-charge ratio $m/z$.
+Ideally, the spectrum would show clean, well-separated peaks that can be assigned to gas species.
+In practice, many peaks are small, some overlap, and the signal often sits on a nonzero background, so detector choice and scan settings determine how reliably weak peaks can still be distinguished from noise.
+
+In the QMS, the detector signal is an ion current.
+It can either be measured directly with a Faraday cup or first amplified with an electron multiplier and then measured as an electron current.
+A Faraday cup is conceptually simple and very linear, but for very small ion currents the measurement becomes noise-limited.
+An electron multiplier increases the current by a large factor (gain), which makes weak peaks much easier to see, but the gain can drift and the amplification adds noise and saturation effects.
+In other words, the Faraday cup is preferable when signals are large and linearity is important, whereas the multiplier is useful when the goal is to detect very small signals at all.
+
+Even before interpreting which gases are present, it helps to remember that the QMF does not transmit an infinitely sharp mass value, but always a finite mass window around it.
+In an idealized picture this window would be perfectly rectangular, yet real instruments produce broadened and often slightly asymmetric peaks.
+Two important reasons are the finite electrode spacing (so transmission depends on the ion’s initial position and angle) and the finite rod length (so some ``almost unstable'' ions still make it through before hitting a rod).
+This difference between an ideal and a realistic peak shape is sketched in Fig.~\ref{fig:qmf_peakshape}.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.86\linewidth]{../resources/figures/qmf_peakshape.png}
+  \caption{Idealized versus realistic peak shapes in a QMF.
+  Finite electrode spacing and finite rod length broaden the transmission window, turning an ideal rectangular peak into a rounded peak with finite width $\Delta m$~\cite{rwth_mass_spectrometry_2024}.}
+  \label{fig:qmf_peakshape}
+\end{figure}
+
+A common practical definition of mass resolution is $R=m/\Delta m$, where $\Delta m$ is the full width at half maximum (FWHM) of a peak.
+Higher resolution (smaller $\Delta m$) usually means lower transmission, because fewer ions remain stable over the full rod length.
+So there is a trade-off: higher resolution separates neighboring masses better but reduces signal, whereas higher transmission gives stronger scans but increases overlap and peak tails.
+
+Peak positions indicate which ions were transmitted, while peak heights (or areas) reflect how many ions reached the detector.
+In residual gas analysis, intensity is often used as a proxy for the \emph{partial pressure} of a gas component, but only after accounting for background and sensitivity.
+A common step is therefore to record a background spectrum (``rest gas spectrum'') and subtract it, especially when small peaks sit on the shoulders of larger ones.
+
+For identifying gases, the key point is that electron impact ionization produces fragment ions in addition to the molecular parent ion.
+A single gas therefore appears as a characteristic pattern of multiple peaks, so identification is typically pattern-based rather than based on one line.
+In vacuum systems, water-related peaks around $m/z\approx 18$ and air-related peaks around $m/z\approx 28,32,40$ are common starting points, but assignments become reliable only once the accompanying peaks match the expected fingerprint.
+
+Figure~\ref{fig:acetone_spectrum} illustrates this with a reference spectrum of acetone.
+Instead of a single ``acetone line'', the molecular ion appears together with several prominent fragments, and the overall combination makes the identification robust.
+
+Finally, scan settings introduce a second trade-off that shows up as noise.
+Short dwell times give faster overview scans but worsen detection limits, while longer dwell times (and/or higher multiplier gain) improve weak-peak visibility but slow the measurement.
+A useful workflow is therefore to start with a broad overview scan at high transmission and then re-measure relevant ranges with higher resolution and more careful scan settings to separate overlaps and make assignments reliable.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{../resources/figures/acetone_spectrum.png}
+  \caption{Example electron-impact mass spectrum of acetone illustrating parent and fragment peaks, as used for pattern-based identification in residual gas analysis~\cite{QMSAnleitung}.}
+  \label{fig:acetone_spectrum}
+\end{figure}
 
 % --- Experimental Setup ---
 \section{Experimental Setup}
