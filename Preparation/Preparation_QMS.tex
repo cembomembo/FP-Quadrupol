@@ -54,7 +54,7 @@
 
 
 % --- Title page ---
-\title{\textbf{Quadrupol Mass Spectrometer}}
+\title{\textbf{Quadrupole Mass Spectrometer}}
 \author{
   \\Preparation Report \\\\\\\\\\\\
   \textbf{Cem Boyaci} \\
@@ -322,6 +322,7 @@ This is illustrated in Fig.~\ref{fig:qmf_resolution}, where scanning along the w
 \end{figure}
 
 \subsection{Detection and Mass Spectra}
+\label{sec:massspectra}
 
 After the quadrupole has filtered the ion beam, the remaining ions are collected by a detector and converted into an electrical signal.
 What we ultimately record is a ``mass spectrum'', i.e.\ the detector signal as a function of the selected mass-to-charge ratio $m/z$.
@@ -378,6 +379,7 @@ A useful workflow is therefore to start with a broad overview scan at high trans
 
 % --- Experimental Setup ---
 \section{Experimental Setup}
+\label{sec:setup}
 
 xxx
 
@@ -389,10 +391,46 @@ xxx
 % --- Procedure ---
 \section{Procedure}
 
-\subsection{xxx}
+\subsection{Preparation and Starting of the Device}
 
-xxx
+First the pressure in the recipient has to be smaller than $5 \times 10^{-5}$ mbar, this is done using the two vacuum pumps described in section \ref*{sec:setup}. Then the devices can be turned on in the following order:
+\begin{itemize}
+  \item QMS-Control device (with emission turned OFF!)
+  \item External Voltage-sources (on 200 V and 100 V)
+  \item Emission is turned ON, and slowly increased to 0.2
+\end{itemize}
+The following other voltages are set: \begin{itemize}
+  \item $U_{FC} = 113 \: V$  (Formation chamber)
+  \item $U_{KA} = 0 \: V$  (Kathode)
+  \item $U_{FA} = 106 \: V$   (Field-axis)
+\end{itemize}
+The heating filament is turned on, this increases the pressure, it takes 30 to 40 minutes for the vacuum to be at its initial value again.
 
+\subsection{Dosage of the Test-Gas}
+\label{sec:dosage}
+Before any gas is let into the recipient the emission has to be turned off again.
+
+Then the supply lines up to the dosage valve are pumped out using the rotary vane pump and then flooded with the test gas. This is repeated twice. 
+
+Now the test gas can be let in through the dosage valve. This is done slowly until the pressure stabilizes around $1\times 10^{-5}$ mbar. (The pressure should not increase above $5\times 10^{-4}$ mbar, this could damage the vacuum pumps)
+
+Then the emission current can be turned on again and slowly increased to 0.2 mA.
+\subsection{Measurement of the Mass Spectrum}
+The mass spectrum is then measured on the computer with a LabView programm. The resolution of the quadrupole mass spectrometer is set on CAL, and thus calibrated.
+The spectrum is then normalized to the pressure of the recipient, so that the peak intensities are corresponding to the partial pressure of the molecule or atom that is being measured.
+Then the different mass peaks are assigned different ionized fragments as is explained in section \ref{sec:massspectra}.
+These steps and the ones from section \ref{sec:dosage} are repeatead for each gas that is measured, inlcuding air. 
+
+
+\subsection{Variation of the Resolution}
+To determine the resolution power of the spectrometer different spectra are recorded with different resolutions starting with the highest.
+In this case the resolution is set to VAR and varied from 2 to 6. That is later analyzed by plotting $m$ against $\Delta m$. 
+
+The resolution $m/\Delta m$ is then also examined as a function of the acceleration voltage $U_A = U_{FC} - U_{FA}$. This is done first with the smallest acceleration voltage, which is then slowly increased. For this $U_{FA}$ is decreased from 110 to 0 V.
+The resulting spectra will also then be analyzed later, by plotting $\Delta m$ against the number of onszillations an ion went through while passing the electric field of the QMS rods. 
+
+\subsection{Turning off of the Device}
+When all measurements are done the device is turned of by first switching off the emission, then the external voltage sources and lastly the QMS control device. 
 
 % --- References ---
 \newpage
