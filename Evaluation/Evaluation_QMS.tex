@@ -109,32 +109,34 @@
 
 Mass spectrometry is a versatile analytical technique used to investigate the composition of atomic and molecular species and plays an important role in many areas of modern science.
 In physics and chemistry, it is widely applied whenever gas mixtures or residual gases need to be analyzed with high sensitivity and selectivity.
-Among the various types of mass spectrometers, the quadrupole mass spectrometer stands out due to its compact design, robustness, and suitability for operation in high and ultra-high vacuum environments.
-For this reason, it has become a standard tool in vacuum diagnostics, residual gas analysis, and experimental research setups~\cite{jousten_ellefson_partialdruckmessung_2017}.
+Among the various types of mass spectrometers, the quadrupole mass spectrometer (QMS) stands out due to its compact design, robustness, and suitability for operation in high vacuum (HV) and ultra-high vacuum (UHV) environments.
+For this reason, it has become a standard tool in vacuum diagnostics, residual gas analysis (RGA), and experimental research setups~\cite{jousten_ellefson_partialdruckmessung_2017}.
 
-In this experiment, gas samples are ionized, mass-selected by a quadrupole mass filter, and detected as an electrical signal, resulting in characteristic mass spectra.
+In this experiment, gas samples are ionized, mass-selected by a quadrupole mass filter (QMF), and detected as an electrical signal, resulting in characteristic mass spectra.
 Different gases and gas mixtures are examined, allowing their composition and fragmentation patterns to be analyzed.
 In addition, the influence of experimental parameters such as applied voltages, pressure conditions, and operating modes on mass resolution, transmission, and signal quality is investigated.
-The measurements provide a practical basis for the interpretation of mass spectra and the assessment of the performance limits of a quadrupole mass spectrometer.
+The measurements provide a practical basis for the interpretation of mass spectra and the assessment of the performance limits of a QMS.
 
 % --- Physical Principles ---
 \section{Physical Principles}
 
-In this section, the physical principles underlying the operation of a quadrupole mass spectrometer (QMS) are outlined.
+In this section, the physical principles underlying the operation of a QMS are outlined.
 The discussion follows the path of the particles through the instrument, from ionization and transport under vacuum conditions to mass-selective filtering, detection, and the interpretation of the resulting mass spectra.
 
 \subsection{Mass Spectrometry and Ionization}
 
-Mass spectrometry is an analytical technique used to investigate the composition of atomic and molecular species by separating charged particles according to their mass-to-charge ratio.
-Since neutral atoms and molecules cannot be manipulated by electric fields, the species under investigation must first be converted into ions.
-The measured quantity in a mass spectrometer is therefore not the mass itself, but the ratio of mass to charge $m/z$, where $m$ denotes the ion mass and $z$ its charge state in units of the elementary charge.
+Mass spectrometry provides information about the composition of atomic and molecular species by separating ions according to their mass-to-charge ratio.
+Since neutral atoms and molecules cannot be manipulated by electric fields, the species under investigation must first be converted into electrically charged ions.
+The measured quantity in a mass spectrometer is therefore not the mass itself, but the ratio of mass to charge state $m/z$, where $m$ denotes the ion mass and $z$ the (dimensionless) charge state.
+The corresponding physical charge is $Q = ze$, with $e$ the elementary charge.
 Different ions with the same mass but different charge states are thus separated at different $m/z$ values, while ions of different mass may appear at similar $m/z$ positions if their charge states differ.
+For example, an ion with mass $m$ and $z=1$ and an ion with mass $2m$ and $z=2$ both appear at the same $m/z$ value.
 
 A mass spectrometer generally consists of three essential components: an ion source, a mass-selective analyzer, and an ion detector.
 In the ion source, neutral gas particles are ionized and accelerated into the analyzer region.
 The analyzer separates the ions according to their $m/z$ value using electric or magnetic fields, and the transmitted ions are finally detected and converted into an electrical signal.
 A schematic overview of these basic components is shown in Fig.~\ref{fig:mass_spectrometer}.
-In the present experiment, mass selection is performed by a quadrupole mass filter (QMF) operating with time-dependent electric fields~\cite{QMSAnleitung}.
+In the present experiment, mass selection is performed by a QMF operating with time-dependent electric fields~\cite{QMSAnleitung}.
 
 \begin{figure}[H]
   \centering
@@ -151,7 +153,7 @@ Due to the relatively high electron energies, this process often transfers exces
 As a consequence, a measured mass spectrum generally consists of multiple peaks corresponding to different ionic fragments of the same molecule.
 These fragmentation patterns are characteristic for a given species and can be used to identify unknown gases or gas mixtures.
 Under typical operating conditions of electron impact ionization, singly charged ions ($z = 1$) are predominantly observed, so that the measured mass-to-charge ratio $m/z$ closely corresponds to the molecular or fragment mass $m$.
-Multiply charged ions may occur but usually do not play a dominant role in residual gas analysis~\cite{demtroeder_atome_molekuele_2005}.
+Multiply charged ions may occur but usually do not play a dominant role in RGA~\cite{demtroeder_atome_molekuele_2005}.
 
 \subsection{Vacuum Requirements and Mean Free Path}
 
@@ -165,10 +167,11 @@ For an ideal gas, the mean free path is given by
   \lambda = \frac{k_{\mathrm{B}} T}{\sqrt{2}\,\pi d^{2} p},
 \]
 where $k_{\mathrm{B}}$ is the Boltzmann constant, $T$ the temperature, $d$ the effective molecular diameter, and $p$ the gas pressure~\cite{wiki_mean_free_path}.
+For fixed $T$ and $d$ this implies $\lambda \propto 1/p$, so lowering the pressure directly increases the collision-free flight distance.
 A sufficiently large mean free path compared to the characteristic dimensions of the mass spectrometer is required to ensure that ions can traverse the analyzer region without significant collisional perturbations.
 
-Quadrupole mass spectrometers are therefore typically operated in the high to ultra-high vacuum regime.
-In residual gas analysis, pressures on the order of $10^{-6}\,\mathrm{mbar}$ or lower are commonly required, corresponding to mean free paths that far exceed the length of the quadrupole rods~\cite{jousten_ellefson_partialdruckmessung_2017}.
+Quadrupole mass spectrometers are therefore typically operated in the HV to UHV regime.
+In RGA, pressures on the order of $10^{-6}\,\mathrm{mbar}$ or lower are commonly required, corresponding to mean free paths that far exceed the length of the quadrupole rods~\cite{jousten_ellefson_partialdruckmessung_2017}.
 
 \subsection{Principle of the Quadrupole Mass Filter}
 
@@ -187,9 +190,10 @@ Depending on their mass-to-charge ratio, these oscillations can either remain bo
 Only ions whose trajectories remain stable in both transverse directions are able to pass through the quadrupole and reach the detector, while all others are filtered out.
 This principle is illustrated schematically in Fig.~\ref{fig:qmf_principle}.
 
+\vspace{1em}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\linewidth]{../resources/figures/qmf_principle.png}
+  \includegraphics[width=0.95\linewidth]{../resources/figures/qmf_principle.png}
   \caption{Schematic illustration of ion motion in a QMF.
   Ions with suitable mass-to-charge ratios exhibit stable oscillatory trajectories and are transmitted to the detector, while ions with unstable motion are lost to the electrodes~\cite{shimadzu_mass_analyzers}.}
   \label{fig:qmf_principle}
@@ -205,7 +209,7 @@ After their creation in the ion source, ions are extracted by an electric field 
 The corresponding acceleration voltage sets the kinetic energy of the ions and therefore largely determines their forward velocity through the instrument.
 
 Inside an ideal quadrupole field, the electric forces act mainly perpendicular to the flight direction, so the ions are continuously steered sideways while their forward motion along the axis remains approximately uniform.
-In the high-vacuum regime considered here, collisions are rare on the flight path, so the ions essentially coast through the rod system with a nearly constant axial speed that is set by the extraction energy.
+In the HV regime considered here, collisions are rare on the flight path, so the ions essentially coast through the rod system with a nearly constant axial speed that is set by the extraction energy.
 
 To describe the transverse dynamics, we choose the coordinate system such that the rods are aligned with the $z$-axis and the transverse coordinates are $(x,y)$.
 The electric potential in the interior of an ideal quadrupole can then be written as
@@ -295,7 +299,8 @@ This concept is illustrated in Fig.~\ref{fig:qmf_stability_demtroeder}.
   \caption{Mathieu stability diagram and working line principle for a QMF.
     (a) Overview of stability regions in the $(a,b)$ plane, where stability is obtained only if the motion remains bounded in both transverse directions.
     (b) Enlarged view of the first stability region, which is used for mass filtering, together with a straight working line through the origin.
-  In the notation of the source, the horizontal axis is labeled $b$ (corresponding to $q$ in this report), and the second transverse coordinate is labeled $z$ (corresponding to $y$ in this report)~\cite{demtroeder_atome_molekuele_2005}.}
+  In the notation of the source, the horizontal axis is labeled $b$ (corresponding to $q$ in this report), and the second transverse coordinate is labeled $z$ (corresponding to $y$ in this report).
+  Adapted from~\cite{demtroeder_atome_molekuele_2005}.}
   \label{fig:qmf_stability_demtroeder}
 \end{figure}
 
@@ -324,7 +329,7 @@ This is illustrated in Fig.~\ref{fig:qmf_resolution}, where scanning along the w
   \includegraphics[width=0.85\linewidth]{../resources/figures/qmf_resolution.png}
   \caption{Working line principle and resolution in a QMF.
     Scanning $U$ and $V$ along a straight working line transmits different ion masses $m_1<m_2<m_3$, while the transmitted interval $\Delta m$ depends on the slope.
-  In the notation of the source, the voltages are labeled $U_{AC}$ and $U_{DC}$ (corresponding to $V$ and $U$ in this report), and the working line condition is written as $U_{DC}/U_{AC} = a_x/(2b_x)$ (corresponding to $a/q = 2U/V$ in this report)~\cite{rwth_mass_spectrometry_2024}.}
+  In the notation of the source, the voltages are labeled $U_{DC}$ and $U_{AC}$ (corresponding to $U$ and $V$ in this report), and the working line condition is written as $U_{DC}/U_{AC} = a_x/2b_x$ (corresponding to $a/q = 2U/V$ in this report)~\cite{rwth_mass_spectrometry_2024}.}
   \label{fig:qmf_resolution}
 \end{figure}
 
@@ -334,7 +339,7 @@ This is illustrated in Fig.~\ref{fig:qmf_resolution}, where scanning along the w
 After the quadrupole has filtered the ion beam, the remaining ions are collected by a detector and converted into an electrical signal.
 What we ultimately record is a ``mass spectrum'', i.e.\ the detector signal as a function of the selected mass-to-charge ratio $m/z$.
 Ideally, the spectrum would show clean, well-separated peaks that can be assigned to gas species.
-In practice, many peaks are small, some overlap, and the signal often sits on a nonzero background, so detector choice and scan settings determine how reliably weak peaks can still be distinguished from noise.
+In practice, however, many peaks are small, some overlap, and the signal often sits on a nonzero background, so detector choice and scan settings determine how reliably weak peaks can still be distinguished from noise.
 
 In the QMS, the detector signal is an ion current.
 It can either be measured directly with a Faraday cup or first amplified with an electron multiplier and then measured as an electron current.
@@ -356,13 +361,18 @@ This difference between an ideal and a realistic peak shape is sketched in Fig.~
   \label{fig:qmf_peakshape}
 \end{figure}
 
-A common practical definition of mass resolution is $R=m/\Delta m$, where $\Delta m$ is the full width at half maximum (FWHM) of a peak.
+A common practical definition of mass resolution is $R=m/\Delta m$, where $\Delta m$ is the full width at half maximum (FWHM) of a peak~\cite{jousten_ellefson_partialdruckmessung_2017}.
 Higher resolution (smaller $\Delta m$) usually means lower transmission, because fewer ions remain stable over the full rod length.
 So there is a trade-off: higher resolution separates neighboring masses better but reduces signal, whereas higher transmission gives stronger scans but increases overlap and peak tails.
 
 Peak positions indicate which ions were transmitted, while peak heights (or areas) reflect how many ions reached the detector.
-In residual gas analysis, intensity is often used as a proxy for the \emph{partial pressure} of a gas component, but only after accounting for background and sensitivity.
+In RGA, intensity is often used as a proxy for the \emph{partial pressure} of a gas component, but only after accounting for background and sensitivity.
 A common step is therefore to record a background spectrum (``rest gas spectrum'') and subtract it, especially when small peaks sit on the shoulders of larger ones.
+
+Peak intensities cannot be read as partial pressures directly, because the measured signal depends on more than just how much of a gas is present.
+It also depends on ionization, fragmentation, and transmission probabilities, as well as the chosen measurement settings.
+These effects are often bundled into a sensitivity factor $K_i$, so that for a chosen mass channel $i$ one relates partial pressure $p_i$ to ion current $I_i$ via $p_i = I_i/K_i$~\cite{jousten_ellefson_partialdruckmessung_2017}.  
+If $K_i$ is not known, the spectrum can only be interpreted relatively, and partial pressures obtained from (normalized) peak intensities are only approximate, instrument-dependent estimates.
 
 For identifying gases, the key point is that electron impact ionization produces fragment ions in addition to the molecular parent ion.
 A single gas therefore appears as a characteristic pattern of multiple peaks, so identification is typically pattern-based rather than based on one line.
@@ -371,17 +381,17 @@ In vacuum systems, water-related peaks around $m/z\approx 18$ and air-related pe
 Figure~\ref{fig:acetone_spectrum} illustrates this with a reference spectrum of acetone.
 Instead of a single ``acetone line'', the molecular ion appears together with several prominent fragments, and the overall combination makes the identification robust.
 
-Finally, scan settings introduce a second trade-off that shows up as noise.
-Short dwell times give faster overview scans but worsen detection limits, while longer dwell times (and/or higher multiplier gain) improve weak-peak visibility but slow the measurement.
-A useful workflow is therefore to start with a broad overview scan at high transmission and then re-measure relevant ranges with higher resolution and more careful scan settings to separate overlaps and make assignments reliable.
-
 \vspace{1em}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{../resources/figures/acetone_spectrum.png}
-  \caption{Example electron-impact mass spectrum of acetone illustrating parent and fragment peaks, as used for pattern-based identification in residual gas analysis~\cite{QMSAnleitung}.}
+  \caption{Example electron-impact mass spectrum of acetone illustrating parent and fragment peaks, as used for pattern-based identification in RGA~\cite{QMSAnleitung}.}
   \label{fig:acetone_spectrum}
 \end{figure}
+
+Finally, scan settings introduce a second trade-off that shows up as noise.
+Short dwell times give faster scan speeds but worsen detection limits, while longer dwell times (and/or higher multiplier gain) improve weak-peak visibility but slow the measurement.
+A useful workflow is therefore to start with a broad overview scan at high transmission and then re-measure relevant ranges with higher resolution and more careful scan settings to separate overlaps and make assignments reliable.
 
 % --- Experimental Setup ---
 \section{Experimental Setup}
