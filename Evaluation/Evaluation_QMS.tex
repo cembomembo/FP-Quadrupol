@@ -364,6 +364,7 @@ This difference between an ideal and a realistic peak shape is sketched in Fig.~
 A common practical definition of mass resolution is $R=m/\Delta m$, where $\Delta m$ is the full width at half maximum (FWHM) of a peak~\cite{jousten_ellefson_partialdruckmessung_2017}.
 Higher resolution (smaller $\Delta m$) usually means lower transmission, because fewer ions remain stable over the full rod length.
 So there is a trade-off: higher resolution separates neighboring masses better but reduces signal, whereas higher transmission gives stronger scans but increases overlap and peak tails.
+In addition, scan speed (dwell time per mass channel) affects noise: faster scans make weak peaks harder to see, while slower scans improve signal-to-noise but take longer.
 
 Peak positions indicate which ions were transmitted, while peak heights (or areas) reflect how many ions reached the detector.
 In RGA, intensity is often used as a proxy for the \emph{partial pressure} of a gas component, but only after accounting for background and sensitivity.
@@ -371,7 +372,7 @@ A common step is therefore to record a background spectrum (``rest gas spectrum'
 
 Peak intensities cannot be read as partial pressures directly, because the measured signal depends on more than just how much of a gas is present.
 It also depends on ionization, fragmentation, and transmission probabilities, as well as the chosen measurement settings.
-These effects are often bundled into a sensitivity factor $K_i$, so that for a chosen mass channel $i$ one relates partial pressure $p_i$ to ion current $I_i$ via $p_i = I_i/K_i$~\cite{jousten_ellefson_partialdruckmessung_2017}.  
+These effects are often bundled into a sensitivity factor $K_i$, so that for a chosen mass channel $i$ one relates partial pressure $p_i$ to ion current $I_i$ via $p_i = I_i/K_i$~\cite{jousten_ellefson_partialdruckmessung_2017}.
 If $K_i$ is not known, the spectrum can only be interpreted relatively, and partial pressures obtained from (normalized) peak intensities are only approximate, instrument-dependent estimates.
 
 For identifying gases, the key point is that electron impact ionization produces fragment ions in addition to the molecular parent ion.
@@ -384,19 +385,77 @@ Instead of a single ``acetone line'', the molecular ion appears together with se
 \vspace{1em}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\linewidth]{../resources/figures/acetone_spectrum.png}
+  \includegraphics[width=0.83\linewidth]{../resources/figures/acetone_spectrum.png}
   \caption{Example electron-impact mass spectrum of acetone illustrating parent and fragment peaks, as used for pattern-based identification in RGA~\cite{QMSAnleitung}.}
   \label{fig:acetone_spectrum}
 \end{figure}
 
-Finally, scan settings introduce a second trade-off that shows up as noise.
-Short dwell times give faster scan speeds but worsen detection limits, while longer dwell times (and/or higher multiplier gain) improve weak-peak visibility but slow the measurement.
-A useful workflow is therefore to start with a broad overview scan at high transmission and then re-measure relevant ranges with higher resolution and more careful scan settings to separate overlaps and make assignments reliable.
-
 % --- Experimental Setup ---
 \section{Experimental Setup}
 
-xxx
+This section describes the vacuum system, gas handling, and the QMS used for all measurements in this experiment.  
+The setup is summarized schematically in Fig.~\ref{fig:setup_overview}.
+
+\subsection{Vacuum System and Gas Handling}
+
+All measurements are performed in a stainless-steel vacuum chamber (recipient) that is continuously evacuated during operation.  
+High-vacuum pumping is provided by a turbomolecular pump mounted directly on the recipient and backed by a mechanical fore-vacuum (membrane) pump.  
+The turbo pump transfers momentum from rapidly rotating rotor blades to gas molecules and drives them toward the foreline, while the membrane pump removes this gas by periodic volume changes of a diaphragm chamber.  
+
+Test gases are supplied from dedicated gas reservoirs connected to the recipient via a dosing manifold.  
+Each gas line contains shut-off valves and a fine control (needle) valve for metering the gas flow into the chamber.  
+During dosing, the needle valve is opened gradually while pumping continues, so the pressure rises until inflow and pumping balance and a stable operating pressure is reached.  
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{../resources/figures/schematic_setup.png}
+  \caption{Schematic overview of the experimental vacuum setup consisting of the QMS connected to the recipient, the pumping system, the pressure gauge, and the dosing line for test gases~\cite{QMSAnleitung}.}
+  \label{fig:setup_overview}
+\end{figure}
+
+The total pressure in the recipient is monitored with a cold-cathode ionization gauge mounted directly on the chamber.
+A high voltage sustains a gas discharge that ionizes residual molecules, and the resulting discharge current increases with gas density and thus serves as a pressure-dependent signal~\cite{leybold_indirekte_vakuumdruckmesser}.  
+The gauge reading is used as the reference for setting and reproducing the operating pressure during dosing and evacuation.
+
+\subsection{Quadrupole Mass Spectrometer and Control Electronics}
+
+The QMS measuring head is connected to the recipient via a flange and contains the ion source, the quadrupole rods, and the ion detector inside the vacuum.
+All operating voltages are supplied and synchronized by the QMS control unit, which performs the mass scan (output: mass channel) and provides the measured detector signal (output: intensity).
+
+Figure~\ref{fig:setup_electronics} summarizes the connected devices and signal paths.
+Two external DC power supplies feed a voltage divider, which provides the required DC voltages for the control unit and for the QMS head.
+For mass filtering, the control unit applies a DC component to the quadrupole rods, while an external HF generator supplies the RF (AC) component.
+Together they form the time-dependent quadrupole field at the rods.
+The ion current at the detector is converted into a readable voltage by an electrometer amplifier and recorded on a PC using LabView.
+During measurements, the front-panel settings mainly adjust scan speed (time per amu), the electrometer range (current sensitivity), and the resolution setting (mass-window width).
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{../resources/figures/schematic_devices.png}
+  \caption{Block diagram of the QMS control electronics and data acquisition chain, including RF generation, electrometer readout, and spectrum acquisition on a PC (LabView)~\cite{QMSAnleitung}.}
+  \label{fig:setup_electronics}
+\end{figure}
+
+Ion creation and injection into the quadrupole are set by the source potentials sketched in Fig.~\ref{fig:setup_potentials}.  
+A heated filament (cathode, KA) emits electrons by thermionic emission, and the Wehnelt electrode (W) shapes and focuses these electrons into a narrow beam along the source axis.  
+The electron-impact energy in the formation region (FR) is mainly determined by the potential difference $U_{\mathrm{FR}}-U_{\mathrm{KA}}$, which sets the kinetic energy $E_{\mathrm{EI}}$ of the electrons when they enter FR and thus the ionization conditions.  
+
+Positive ions created in the formation region are extracted toward the entrance aperture (Eintrittsblende, EB).  
+Along this path, the ions are first accelerated out of FR by the potential drop toward the EB region, which helps to pull them out efficiently and form a directed ion beam.  
+Directly in front of the quadrupole, the ions are then retarded to the field-axis potential $U_{\mathrm{FA}}$, so that their kinetic energy inside the rod system is set mainly by the difference $U_{\mathrm{FR}}-U_{\mathrm{FA}}$.  
+With the settings used here ($U_{\mathrm{FR}}=113\,\mathrm{V}$, $U_{\mathrm{FA}}=106\,\mathrm{V}$), this corresponds to an injection energy of about $E_{\mathrm{ion}}\approx e\,(U_{\mathrm{FR}}-U_{\mathrm{FA}})\approx 7\,\mathrm{eV}$, which reduces transit speed and improves stable transmission through the quadrupole. 
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.92\linewidth]{../resources/figures/schematic_ion_energy.png}
+  \caption{Potential/energy scheme of the electron-impact source and injection region. 
+  Electrons emitted at the cathode (KA) are focused by the Wehnelt electrode (W) and accelerated into the formation region (FR) for ionization.
+  The resulting ions are then extracted toward the entrance aperture (EB) and retarded to the field-axis potential $U_{\mathrm{FA}}$ before entering the quadrupole rods~\cite{QMSAnleitung}.}
+  \label{fig:setup_potentials}
+\end{figure}
 
 % --- Procedure ---
 \section{Procedure}
