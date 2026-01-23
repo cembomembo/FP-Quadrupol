@@ -543,6 +543,7 @@ After completing all measurements, emission was switched to \texttt{OFF} first, 
 \section{Results}
 
 \subsection{Argon Spectrum (with Background Subtraction)}
+
 \begin{itemize}
   \item Plot the argon spectrum and normalize it to the total chamber pressure
   \item \textit{Pressure normalization:} multiply the full intensity axis by a constant factor so that the plotted signal becomes $I/p$ (e.g.\ $I_\mathrm{norm}(m/z)=I(m/z)/p_\mathrm{end}$), i.e.\ divide every intensity value in the spectrum by the measured total pressure of that scan (the $p$ value in the filename)
@@ -551,6 +552,7 @@ After completing all measurements, emission was switched to \texttt{OFF} first, 
 \end{itemize}
 
 \subsection{Acetone Spectrum}
+
 \begin{itemize}
   \item Plot the acetone spectrum (optionally focus on the relevant range, e.g. $m/z\approx 10$ to $60$)
   \item Normalize to pressure and assign the dominant parent/fragment peaks using the expected fragmentation pattern
@@ -558,6 +560,7 @@ After completing all measurements, emission was switched to \texttt{OFF} first, 
 \end{itemize}
 
 \subsection{Ethanol Spectrum}
+
 \begin{itemize}
   \item Plot the ethanol spectrum and normalize to pressure
   \item Assign the dominant fragment groups (C$_2$H$_x$O$^+$ family etc) and note overlaps with common background peaks
@@ -565,6 +568,7 @@ After completing all measurements, emission was switched to \texttt{OFF} first, 
 \end{itemize}
 
 \subsection{Air Spectrum}
+
 \begin{itemize}
   \item Plot the air spectrum and normalize to pressure
   \item Assign the main air peaks (N$_2^+$ at 28, O$_2^+$ at 32, Ar$^+$ at 40, CO$_2^+$ at 44, plus fragments)
@@ -572,13 +576,15 @@ After completing all measurements, emission was switched to \texttt{OFF} first, 
 \end{itemize}
 
 \subsection{Resolution Series in Air (VAR: 6, 5, 4, 3, 2)}
+
 \begin{itemize}
   \item Overlay the air spectra for resolution settings VAR = 6 $\rightarrow$ 2 and discuss the qualitative trade-off (peak narrowing vs signal loss)
   \item For selected peaks, determine the FWHM $\Delta m$ and compile a table of $(m,\Delta m)$
   \item Plot $m$ versus $\Delta m$ as requested and extract/compare resolving power trends
 \end{itemize}
 
-\subsection{Acceleration-Voltage Series in Air (Variation of $U_\mathrm{FA}$)}
+\subsection{Acceleration-Voltage Series in Air (Variation of \texorpdfstring{$U_\mathrm{FA}$}{})}
+
 \begin{itemize}
   \item Overlay the air spectra for the used $U_\mathrm{FA}$ values (112.9, 98.0, 83.0, 63.0, 43.0, 23.0, 3.0 V) and compute $U_\mathrm{B}=U_\mathrm{FR}-U_\mathrm{FA}$ for each case
   \item For two chosen masses, extract $\Delta m$ (FWHM) at each $U_\mathrm{B}$
