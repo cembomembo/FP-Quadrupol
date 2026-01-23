@@ -398,18 +398,21 @@ The setup is summarized schematically in Fig.~\ref{fig:setup_overview}.
 
 \subsection{Vacuum System and Gas Handling}
 
-All measurements are performed in a stainless-steel vacuum chamber (recipient) that is continuously evacuated during operation.  
-High-vacuum pumping is provided by a turbomolecular pump mounted directly on the recipient and backed by a mechanical fore-vacuum (membrane) pump.  
-The turbo pump transfers momentum from rapidly rotating rotor blades to gas molecules and drives them toward the foreline, while the membrane pump removes this gas by periodic volume changes of a diaphragm chamber.  
+All measurements are performed in a stainless-steel vacuum chamber (recipient) that is continuously evacuated during operation.
+High-vacuum pumping is provided by a turbomolecular pump mounted directly on the recipient and backed by a mechanical fore-vacuum (membrane) pump.
+The turbo pump transfers momentum from rapidly rotating rotor blades to gas molecules and drives them toward the foreline, while the membrane pump removes this gas by periodic volume changes of a diaphragm chamber.
 
-Test gases are supplied from dedicated gas reservoirs connected to the recipient via a dosing manifold.  
-Each gas line contains shut-off valves and a fine control (needle) valve for metering the gas flow into the chamber.  
-During dosing, the needle valve is opened gradually while pumping continues, so the pressure rises until inflow and pumping balance and a stable operating pressure is reached.  
+Test gases are supplied from three reservoirs (acetone, ethanol, argon) and from ambient air via a dosing manifold.  
+Each source can be isolated individually and feeds into a common manifold section.
+For flushing between gases, this manifold can be evacuated with a separate rotary vane pump to remove residual gas in the lines.
+Admission to the recipient is then controlled by an isolation valve followed by a fine dosing (needle) valve at the chamber inlet.
+During dosing, the needle valve is opened gradually while pumping continues, so the pressure rises to a steady value where gas inflow and pumping balance.  
+A pressure gauge on the manifold monitors the line pressure during flushing and dosing.
 
 \vspace{1em}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.85\linewidth]{../resources/figures/schematic_setup.png}
+  \includegraphics[width=0.8\linewidth]{../resources/figures/schematic_setup.png}
   \caption{Schematic overview of the experimental vacuum setup consisting of the QMS connected to the recipient, the pumping system, the pressure gauge, and the dosing line for test gases~\cite{QMSAnleitung}.}
   \label{fig:setup_overview}
 \end{figure}
@@ -424,7 +427,7 @@ The QMS measuring head is connected to the recipient via a flange and contains t
 All operating voltages are supplied and synchronized by the QMS control unit, which performs the mass scan (output: mass channel) and provides the measured detector signal (output: intensity).
 
 Figure~\ref{fig:setup_electronics} summarizes the connected devices and signal paths.
-Two external DC power supplies feed a voltage divider, which provides the required DC voltages for the control unit and for the QMS head.
+Two external DC power supplies (100\,V and 200\,V) feed a voltage divider, which provides the required DC voltages for the control unit and for the QMS head.
 For mass filtering, the control unit applies a DC component to the quadrupole rods, while an external HF generator supplies the RF (AC) component.
 Together they form the time-dependent quadrupole field at the rods.
 The ion current at the detector is converted into a readable voltage by an electrometer amplifier and recorded on a PC using LabView.
@@ -450,7 +453,7 @@ With the settings used here ($U_{\mathrm{FR}}=113\,\mathrm{V}$, $U_{\mathrm{FA}}
 \vspace{1em}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.92\linewidth]{../resources/figures/schematic_ion_energy.png}
+  \includegraphics[width=0.98\linewidth]{../resources/figures/schematic_ion_energy.png}
   \caption{Potential/energy scheme of the electron-impact source and injection region. 
   Electrons emitted at the cathode (KA) are focused by the Wehnelt electrode (W) and accelerated into the formation region (FR) for ionization.
   The resulting ions are then extracted toward the entrance aperture (EB) and retarded to the field-axis potential $U_{\mathrm{FA}}$ before entering the quadrupole rods~\cite{QMSAnleitung}.}
@@ -460,9 +463,80 @@ With the settings used here ($U_{\mathrm{FR}}=113\,\mathrm{V}$, $U_{\mathrm{FA}}
 % --- Procedure ---
 \section{Procedure}
 
-\subsection{xxx}
+This section summarizes the experimental procedure and relates each step to the measurement tasks defined in the lab script.
 
-xxx
+\subsection{Pump-down and Instrument Start-up}
+
+The vacuum chamber was evacuated by switching on the (membrane) forepump and subsequently the turbomolecular pump, and the base pressure was reduced to the \(10^{-6}\,\mathrm{mbar}\) range.
+Before enabling filament emission, the chamber pressure was verified to be below \(5\times 10^{-5}\,\mathrm{mbar}\) as required, since at insufficient vacuum the hot cathode can overheat and break (gas cooling is weak and heat removal is mainly by radiation).
+
+The QMS control unit was switched on with emission set to \texttt{OFF}, and the external DC supplies (100 V and 200 V) were enabled.
+Emission was then switched to \texttt{ON} and ramped slowly to 0.2 (of the maximum setting 1.0) to reduce thermal stress on the fragile filament during heat-up.  
+Afterwards, the source potentials were set to \(U_{\mathrm{KA}}\approx 0\,\mathrm{V}\) (instrument-limited to \(\sim 30\,\mathrm{mV}\)), \(U_{\mathrm{FR}}=113\,\mathrm{V}\), and \(U_{\mathrm{FA}}=106\,\mathrm{V}\).
+After filament activation the pressure increased noticeably, and measurements were started only once the pressure had returned close to its previous steady value.
+The relevant front-panel controls are shown in Fig.~\ref{fig:qms_control_panels}.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\linewidth]{../resources/figures/qms_control_panels.jpg}
+  \caption{Front panels of the QMS electronics used in the experiment.
+  Top: Balzers QMG 111B controller with emission control, electrometer range, scan speed and the resolution knob. 
+  Bottom: auxiliary supply unit providing the adjustable source voltages (\(U_{\mathrm{KA}}, U_{\mathrm{FR}}, U_{\mathrm{FA}}\))\\.
+  (Own photograph.)}
+  \label{fig:qms_control_panels}
+\end{figure}
+
+\subsection{Gas-Line Flushing and Gas Dosing}
+
+Mass spectra were recorded for argon, acetone, ethanol, and air, and between different gases the inlet system was flushed to minimize cross-contamination.  
+For safety and to follow the recommended workflow, emission was switched to \texttt{OFF} whenever a new gas was prepared in the inlet lines.  
+Flushing was performed with the fine dosing (needle) valve to the chamber kept closed throughout.  
+First, the selected gas reservoir was opened briefly to fill the first line section.  
+Then this section was evacuated by opening the valve to the rotary vane pump and closing it again.  
+Next, the reservoir was opened again briefly, and the second line section up to the dosing valve was flushed by briefly opening the connecting valve between the two line sections, after which it was closed again.  
+This sequence was repeated for at least three cycles, so that the second line section was left pre-filled with the selected gas before dosing.
+
+For dosing into the chamber, all valves in the inlet system were closed again, in particular the connecting valve between the two line sections, which served as a safety isolation.  
+The chamber was then dosed only via the fine dosing valve at the recipient inlet, which was opened gradually while pumping continued until the pressure rose to a steady operating value around \(10^{-5}\,\mathrm{mbar}\).
+During dosing, care was taken that the pressure did not rise abruptly into the \(10^{-4}\,\mathrm{mbar}\) regime, since excessive pressure can endanger the pumping system and violates the recommended operating limits.
+The gas inlet manifold and the two line sections used for flushing and dosing are shown in Fig.~\ref{fig:gas_manifold_photo}.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{../resources/figures/gas_manifold.jpg}
+  \caption{Gas inlet manifold for flushing and dosing.
+  Three reservoirs (acetone, ethanol, argon) and an ambient-air inlet feed into a common manifold with pressure gauge, evacuation connection to a rotary vane pump, and a fine dosing (needle) valve to the recipient.
+  (Own photograph.)}
+  \label{fig:gas_manifold_photo}
+\end{figure}
+
+\subsection{Mass-Spectrum Acquisition and Data Logging}
+
+All spectra were recorded using the LabView acquisition program by scanning the mass range typically from \(m/z=4\) to \(100\) (amu).
+For the final air series (resolution and acceleration-voltage variation), the scan range was reduced to roughly \(m/z\approx 4\) to \(60\) to focus on the relevant peaks and reduce measurement time.
+For each gas, a fast overview scan with \(1\,\mathrm{s/amu}\) was recorded first to verify the expected peak pattern and to choose a suitable electrometer range (avoiding saturation while keeping weak peaks visible).  
+The final spectra were then recorded with \(10\,\mathrm{s/amu}\) to improve signal-to-noise.
+Electrometer settings were adjusted depending on signal level and were often chosen one decade more sensitive than the recommended values (e.g.\ \(10^{-9}\) instead of \(10^{-10}\)).
+
+At the beginning of the sequence, one background spectrum (residual gas) was recorded at base pressure and used for background subtraction of the argon spectrum.  
+Due to time constraints, no separate background spectra were recorded for acetone, ethanol, and air, so those spectra were evaluated including the residual-gas contribution.  
+All spectra were saved as \texttt{.txt} files containing two columns, where the first column is the recorded intensity signal and the second column is the mass channel (stored as \(m/10\) by the acquisition software).  
+Measurement settings and the end-of-scan chamber pressure were encoded in the filenames using the tags \texttt{bg}, \texttt{ar}, \texttt{ac}, \texttt{eth}, \texttt{air}, as well as \texttt{sp} (scan speed), \texttt{em} (electrometer range), \texttt{p} (total pressure), \texttt{res} (resolution), and \texttt{ufa} (\(U_{\mathrm{FA}}\)).  
+
+\subsection{Resolution and Acceleration-Voltage Series in Air}
+
+To determine the resolving power, a series of air spectra was recorded with the resolution setting switched to \texttt{VAR} and stepped through the values 6, 5, 4, 3, and 2 (starting from the highest resolution).  
+These settings were chosen to match the discrete resolution values used in the provided reference spectra as closely as possible.
+
+To study the influence of ion injection energy, additional air spectra were recorded while varying \(U_{\mathrm{FA}}\), which changes the acceleration voltage \(U_{\mathrm{B}}=U_{\mathrm{FR}}-U_{\mathrm{FA}}\).  
+In analogy to the reference series, \(U_{\mathrm{FA}}\) was set successively to 112.9\,V, 98.0\,V, 83.0\,V, 63.0\,V, 43.0\,V, 23.0\,V, and 3.0\,V, corresponding to an increasing \(U_{\mathrm{B}}\) at fixed \(U_{\mathrm{FR}}\).  
+The sequence was therefore taken from the lowest acceleration voltage (small \(U_{\mathrm{B}}\)) to the highest (largest \(U_{\mathrm{B}}\)), while keeping the remaining scan settings fixed.
+
+\subsection{Shutdown}
+
+After completing all measurements, emission was switched to \texttt{OFF} first, then the external voltage supplies were switched off, and finally the QMS control unit was turned off, following the recommended shutdown order.  
 
 % --- Results ---
 \section{Results}
