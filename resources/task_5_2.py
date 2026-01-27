@@ -17,11 +17,11 @@ def run_task_5_2():
     plt.plot(m, i_norm, color='purple', label='Acetone ($CH_3COCH_3$)')
     
     # Annotate Fragments
-    peaks = [(58, 'M+'), (43, 'CH3CO+'), (15, 'CH3+')]
+    peaks = [(59, 'M+'), (43.6, 'CH3CO+'), (15.1, 'CH3+')]
     for mass, txt in peaks:
         h = get_peak_height_robust(m, i_norm, mass, 1.0)
         if h > 0:
-            plt.annotate(txt, xy=(mass, h), xytext=(mass, h*1.15),
+            plt.annotate(txt, xy=(mass, h), xytext=(mass, h*1.5),
                          arrowprops=dict(facecolor='black', shrink=0.05), ha='center')
 
     plt.xlim(10, 65)
