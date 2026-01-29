@@ -70,13 +70,14 @@ def run_task_5_2():
             plt.annotate(
                 txt, 
                 xy=(mass, h), 
+                color='blue',
                 xytext=(-10, 30),              # Position text 30 points above the peak
                 textcoords='offset points',  # Use relative offset instead of absolute scaling
                 arrowprops=dict(
                     arrowstyle='->',         # Slimmer, cleaner arrow head
                     connectionstyle='arc3',  # Straight line
                     color='blue',           # Use 'red' for impurities
-                    lw=1.5                   # Line width
+                    lw=1.2                   # Line width
                 ),
                 ha='center',
                 va='bottom',
@@ -125,8 +126,8 @@ def run_task_5_2():
     plt.xlim(10, 60)
     plt.ylim(0)
     plt.title('Acetone Spectrum')
-    plt.xlabel('Mass-to-Charge Ratio ($m/z$)')
-    plt.ylabel('Partial Pressure $I/10^{-6}hPa$')
+    plt.xlabel('m/z ($Th$)')
+    plt.ylabel('Partial Pressure $10^{-6}hPa$')
     plt.legend()
     plt.grid(True, alpha=0.5)
     plt.tight_layout()

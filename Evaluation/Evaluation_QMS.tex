@@ -542,7 +542,7 @@ After completing all measurements, emission was switched to \texttt{OFF} first, 
 % --- Results ---
 \section{Results}
 \subsection{Argon Spectrum}
-A measurement of the background spectrum was recorded to implement a background subtraction to the recorded spectrum of the ionized Argon. First, both spectrum were normalized by pressure and then the background spectrum was subtracted from the Argon spectrum (Figure~\ref{fig:argon}). The effect of the substraction is substantially noticeable in the $H_2O^+$ peak ($18m/z$). We can appreciate potential impurities around the $28m/z$ range, attributed to $N_2^+$. The comparison to the reference spectrum confirms the expected peaks found in our data (Figure~\ref{fig:argon-reference}).
+A measurement of the background spectrum was recorded to implement a background subtraction to the recorded spectrum of the ionized Argon. First, both spectrum were normalized by pressure and then the background spectrum was subtracted from the Argon spectrum (Figure~\ref{fig:argon}). The effect of the substraction is substantially noticeable in the $H_2O^+$ peak ($18Th$). We can appreciate potential impurities around the $28Th$ range, attributed to $N_2^+$. The comparison to the reference spectrum confirms the expected peaks found in our data (Figure~\ref{fig:argon-reference}).
 
 \begin{figure}[htbp]
   \centering
@@ -552,12 +552,12 @@ A measurement of the background spectrum was recorded to implement a background 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.4\linewidth]{../resources/figures/QMS_Beispiel-Spektren/QMS_Beispiel-Spektren-2.png}
+  \includegraphics[width=0.6\linewidth]{../resources/figures/QMS_Beispiel-Spektren/QMS_Beispiel-Spektren-2.png}
   \caption{Reference spectrum for Argon.}\label{fig:argon-reference}
 \end{figure}
 
 \subsection{Acetone Spectrum}
-Figure~\ref{fig:acetone} contains the acetone spectrum in the range of 10 to 60 $m/z$, with normalized pressure. The dominant peaks (blue), fragment peaks (gray), and impurities (red) were labelled in the plot. The comparison to the reference spectrum confirms the expected peaks found in our data (Figure~\ref{fig:argon-reference}).
+Figure~\ref{fig:acetone} contains the acetone spectrum in the range of 10 to 60$Th$, with normalized pressure. The dominant peaks (blue), fragment peaks (gray), and impurities (red) were labelled in the plot. The comparison to the reference spectrum confirms the expected peaks found in our data (Figure~\ref{fig:acetone-reference}).
 
 \begin{figure}[htbp]
   \centering
@@ -567,12 +567,12 @@ Figure~\ref{fig:acetone} contains the acetone spectrum in the range of 10 to 60 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\linewidth]{../resources/figures/QMS_Beispiel-Spektren/QMS_Beispiel-Spektren-3.png}
+  \includegraphics[width=0.8\linewidth]{../resources/figures/QMS_Beispiel-Spektren/QMS_Beispiel-Spektren-3.png}
   \caption{Reference spectrum for Acetone.}\label{fig:acetone-reference}
 \end{figure}
 
 \subsection{Ethanol Spectrum}
-Figure~\ref{fig:ethanol} contains the ethanol spectrum in the range of 10 to 50 $m/z$, with normalized pressure. The dominant peaks (blue), fragment peaks (gray), and impurities (red) were labelled in the plot. The comparison to the reference spectrum again confirms the expected peaks found in our data (Figure~\ref{fig:argon-reference}).
+Figure~\ref{fig:ethanol} contains the ethanol spectrum in the range of 10 to 50Th, with normalized pressure. The dominant peaks (blue), fragment peaks (gray), and impurities (red) were labelled in the plot. The comparison to the reference spectrum again confirms the expected peaks found in our data (Figure~\ref{fig:ethanol-reference}).
 
 \begin{figure}[htbp]
   \centering
@@ -582,19 +582,26 @@ Figure~\ref{fig:ethanol} contains the ethanol spectrum in the range of 10 to 50 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\linewidth]{../resources/figures/QMS_Beispiel-Spektren/QMS_Beispiel-Spektren-4.png}
+  \includegraphics[width=0.8\linewidth]{../resources/figures/QMS_Beispiel-Spektren/QMS_Beispiel-Spektren-4.png}
   \caption{Reference spectrum for Ethanol.}\label{fig:ethanol-reference}
 \end{figure}
 
 \subsection{Air Spectrum}
+Figure~\ref{fig:air} contains the air spectrum in the range of 10 to 50$Th$, with normalized pressure. The dominant peaks (blue), and impurities (red) were labelled in the plot. Unfortunately the comparison to the reference spectrum again shows that we are missing in our data both the $Ar^+$ peak at $40Th$ and the impurity peak from $CO_2^+$ at $44Th$(Figure~\ref{fig:air-reference}).
 
-\begin{itemize}
-  \item Plot the air spectrum and normalize to pressure
-  \item Assign the main air peaks (N$_2^+$ at 28, O$_2^+$ at 32, Ar$^+$ at 40, CO$_2^+$ at 44, plus fragments)
-  \item Compare to the provided reference spectrum and comment on contamination/background signatures
-\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{../resources/task_5_4_air.png}
+  \caption{Mass-to-charge spectrum of the recorded measurement for the air composition with normalized pressure.}\label{fig:air}
+\end{figure}
 
-\subsection{Resolution Series in Air (VAR: 6, 5, 4, 3, 2)}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{../resources/figures/QMS_Beispiel-Spektren/QMS_Beispiel-Spektren-5.png}
+  \caption{Reference spectrum for the air spectrum.}\label{fig:air-reference}
+\end{figure}
+
+\subsection{Resolution Analysis}
 
 \begin{itemize}
   \item Overlay the air spectra for resolution settings VAR = 6 $\rightarrow$ 2 and discuss the qualitative trade-off (peak narrowing vs signal loss)

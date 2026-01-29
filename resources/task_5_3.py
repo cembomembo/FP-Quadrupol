@@ -81,15 +81,15 @@ def run_task_5_3():
                     x=-20 
                     angle=0
             
-            elif mass in [46, 31, 45]:
-                # Main Peaks: Black, Bold (Parent & Base)
+            elif mass in [46.7, 31.3, 45.65]:
+                # Main Peaks
                 color = 'blue'
                 alpha = 1.0
                 fontweight = 'bold'
                 offset_y = 25
                 x=0
                 angle=90
-                arrow_style = dict(arrowstyle='->', color=color, lw=2)
+                arrow_style = dict(arrowstyle='->', color=color, lw=1.2)
             
             else:
                 # Minor Fragments: Dark Gray
@@ -115,8 +115,8 @@ def run_task_5_3():
     plt.xlim(10, 50)
     plt.ylim(0)
     plt.title('Ethanol Spectrum')    
-    plt.xlabel('Mass-to-Charge Ratio ($m/z$)')
-    plt.ylabel('Partial Pressure $I/10^{-6}hPa$')
+    plt.xlabel('m/z ($Th$)')
+    plt.ylabel('Partial Pressure $10^{-6}hPa$')
     plt.legend()
     plt.grid(True, alpha=0.4)
     plt.tight_layout()
