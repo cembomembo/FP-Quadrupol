@@ -541,22 +541,35 @@ After completing all measurements, emission was switched to \texttt{OFF} first, 
 
 % --- Results ---
 \section{Results}
-
 \subsection{Argon Spectrum}
-A measurement of the background spectrum was recorded to implement a background subtraction to the recorded spectrum of the ionized Argon. First, both spectrum were normalized by pressure and then the background spectrum was subtracted from the Argon spectrum (Figure~\ref{fig:argon}). The effect of the substraction is substantially noticeable in the $H_2O^+$ peak ($18m/z$). We can appreciate potential impurities around the $28m/z$ range due to $N_2^+$.
+A measurement of the background spectrum was recorded to implement a background subtraction to the recorded spectrum of the ionized Argon. First, both spectrum were normalized by pressure and then the background spectrum was subtracted from the Argon spectrum (Figure~\ref{fig:argon}).  The effect of the substraction is substantially noticeable in the $H_2O^+$ peak ($18m/z$). We can appreciate potential impurities around the $28m/z$ range, attributed to $N_2^+$. The comparison to the reference spectrum confirms the expected peaks found in our data (Figure~\ref{fig:argon-reference}).
 
-\begin{figure}
+\begin{figure}[htbp]
   \centering
-  \includegraphics[width=1.0\linewidth]{../resources/task_5_1_argon.png}
-  \caption{Corrected Argon spectrum, background spectrum, and recorded background spectrum. The intensities were normalized according to their respective pressure values and the spectrums were matched using the $H_2O^+$ peak as reference. }\label{fig:argon}
+  \includegraphics[width=0.9\linewidth]{../resources/task_5_1_argon.png}
+  \caption{Corrected Argon spectrum, background spectrum, and recorded background spectrum. The intensities were normalized according to their respective pressure values and the spectrums were matched using the $H_2O^+$ peak as reference.}\label{fig:argon}
 \end{figure}
-\subsection{Acetone Spectrum}
 
-\begin{itemize}
-  \item Plot the acetone spectrum (optionally focus on the relevant range, e.g. $m/z\approx 10$ to $60$)
-  \item Normalize to pressure and assign the dominant parent/fragment peaks using the expected fragmentation pattern
-  \item Compare to the provided reference spectrum and discuss unexpected peaks or overlaps (e.g. air/water background, argon remnants)
-\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.4\linewidth]{../resources/figures/QMS_Beispiel-Spektren/QMS_Beispiel-Spektren-2.png}
+  \caption{Reference spectrum for Argon.}\label{fig:argon-reference}
+\end{figure}
+
+\subsection{Acetone Spectrum}
+Figure~\ref{fig:acetone} contains the acetone spectrum in the range of 10 to 60 $m/z$, with normalized pressure. Both the dominant peaks (blue) and the fragment peaks (green) were labelled. The comparison to the reference spectrum confirms the expected peaks found in our data (Figure~\ref{fig:argon-reference}).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{../resources/task_5_2_acetone.png}
+  \caption{Corrected Argon spectrum, background spectrum, and recorded background spectrum. The intensities were normalized according to their respective pressure values and the spectrums were matched using the $H_2O^+$ peak as reference.}\label{fig:acetone}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{../resources/figures/QMS_Beispiel-Spektren/QMS_Beispiel-Spektren-3.png}
+  \caption{Reference spectrum for Acetone.}\label{fig:acetone-reference}
+\end{figure}
 
 \subsection{Ethanol Spectrum}
 
@@ -596,7 +609,8 @@ A measurement of the background spectrum was recorded to implement a background 
 \subsection{xxx}
 
 Task 1: Comment that the effect of the substraction is substantially noticeable in the H2O+ peak. Talk about the N2 and 36m/z range.
-Task 2:
+Task 2 to 4: Compare to the references spectrums and discuss unexpected peaks or overlaps (e.g. air/water background, argon remnants)
+Task 5: discuss the qualitative trade-off (peak narrowing vs signal loss)
 
 % --- Conclusion ---
 \section{Conclusion}

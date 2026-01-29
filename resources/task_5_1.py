@@ -51,11 +51,11 @@ def run_task_5_1():
 
     # 36Ar+ (20)
     h = get_peak_height_robust(m_ar, i_clean, 36.0, 1.0)
-    plt.text(35.5, h*1.3, '$^{36}Ar^{+}$', ha='center', va='bottom', color='blue')
+    plt.text(35.5, h*2, '$^{36}Ar^{+}$', ha='center', va='bottom', color='blue')
 
     # -- IMPURITIES --
     h = get_peak_height_robust(m_ar, i_clean, 28.0, 1.0)
-    plt.text(27.5, h*1.3, '$N_{2}^{+}$', ha='center', va='bottom', color='red')
+    plt.text(27.5, h*2, '$N_{2}^{+}$', ha='center', va='bottom', color='red')
     
     plt.xlim(10, 50)
     plt.ylim(0)
