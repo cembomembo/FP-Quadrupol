@@ -32,9 +32,9 @@ def run_task_5_4():
             plt.text(mass, h*1.05, label, ha='center', va='bottom', color='red', fontsize=10)
 
     plt.xlim(10, 50)
-    plt.title('Task 5.4: Air Spectrum Composition')
-    plt.xlabel('Mass (amu)')
-    plt.ylabel('Normalized Intensity (A/mbar)')
+    plt.title('Air Spectrum Composition')
+    plt.xlabel('Mass-to-Charge Ratio ($m/z$)')
+    plt.ylabel('Partial Pressure $1/10^{-6}hPa$')
     plt.legend()
     plt.grid(True, alpha=0.4)
     plt.tight_layout()

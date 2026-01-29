@@ -45,3 +45,48 @@ def get_peak_height_robust(mass, intensity, target_mass, search_window):
     peak_masses = m_local[peaks]
     idx = np.argmin(np.abs(peak_masses - target_mass))
     return float(i_local[peaks[idx]])
+
+def calculate_fwhm(mass, intensity, target_mass, window=1.5):
+    """
+    Calculates Full Width at Half Maximum (FWHM) for a peak near target_mass.
+    Returns: (peak_mass, fwhm, peak_height)
+    """
+    # 1. Mask data to local area
+    mask = (mass > target_mass - window) & (mass < target_mass + window)
+    if not np.any(mask): return None, None, None
+    
+    m_loc = mass[mask]
+    i_loc = intensity[mask]
+    
+    # 2. Find Max
+    i_max = np.max(i_loc)
+    if i_max == 0: return None, None, None
+    m_max = m_loc[np.argmax(i_loc)]
+    
+    # 3. Find Half Max
+    half_max = i_max / 2.0
+    
+    # 4. Find crossings (Linear Interpolation)
+    # We look for where intensity - half_max changes sign
+    diff = i_loc - half_max
+    crossings = np.where(np.diff(np.sign(diff)))[0]
+    
+    if len(crossings) < 2:
+        return m_max, 0.0, i_max # Peak too narrow to resolve
+        
+    # Take the two crossings surrounding the peak
+    # (Simplified: just take first and last in window if multiple noise crossings)
+    left_idx = crossings[0]
+    right_idx = crossings[-1]
+    
+    def get_x_at_y(idx, target_y):
+        y1, y2 = i_loc[idx], i_loc[idx+1]
+        x1, x2 = m_loc[idx], m_loc[idx+1]
+        # Linear interp formula
+        if y2 == y1: return x1
+        return x1 + (target_y - y1) * (x2 - x1) / (y2 - y1)
+
+    m_left = get_x_at_y(left_idx, half_max)
+    m_right = get_x_at_y(right_idx, half_max)
+    
+    return m_max, (m_right - m_left), i_max

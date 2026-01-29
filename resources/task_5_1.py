@@ -50,9 +50,10 @@ def run_task_5_1():
     plt.text(19, h_20*1.1, '$Ar^{2+}$', ha='center', va='bottom', color='blue')
     
     plt.xlim(10, 50)
-    plt.title('Task 5.1: Argon Spectrum (BG Subtracted)')
-    plt.xlabel('Mass (amu)')
-    plt.ylabel('Normalized Intensity (A/mbar)')
+    plt.ylim(0)
+    plt.title('Argon Spectrum')
+    plt.xlabel('Mass-to-Charge Ratio ($m/z$)')
+    plt.ylabel('Partial Pressure $1/10^{-6}hPa$')
     plt.legend()
     plt.grid(True, alpha=0.5)
     plt.tight_layout()
