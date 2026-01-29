@@ -41,13 +41,21 @@ def run_task_5_1():
 
     # --- PEAK LABELS ---
     # Ar+ (40)
-    plt.axvline(x=40.45, color='blue', linestyle=':', alpha=0.6)
-    plt.text(39, np.max(i_clean)*1.02, '$Ar^+$', ha='center', va='bottom', color='blue', fontweight='bold')
+    plt.axvline(x=40.45, color='blue', linestyle=':', alpha=0.6, ymax=0.9)
+    plt.text(39, np.max(i_clean), '$Ar^+$', ha='center', va='bottom', color='blue', fontweight='bold')
     
     # Ar++ (20)
-    h_20 = get_peak_height_robust(m_ar, i_clean, 20.0, 1.0)
-    plt.axvline(x=20.1, color='blue', linestyle=':', alpha=0.6, ymax=0.3)
-    plt.text(19, h_20*1.1, '$Ar^{2+}$', ha='center', va='bottom', color='blue')
+    h = get_peak_height_robust(m_ar, i_clean, 20.0, 1.0)
+    plt.axvline(x=20.1, color='blue', linestyle=':', alpha=0.6, ymax=0.21)
+    plt.text(19.5, h*1.1, '$Ar^{2+}$', ha='center', va='bottom', color='blue')
+
+    # 36Ar+ (20)
+    h = get_peak_height_robust(m_ar, i_clean, 36.0, 1.0)
+    plt.text(35.5, h*1.3, '$^{36}Ar^{+}$', ha='center', va='bottom', color='blue')
+
+    # -- IMPURITIES --
+    h = get_peak_height_robust(m_ar, i_clean, 28.0, 1.0)
+    plt.text(27.5, h*1.3, '$N_{2}^{+}$', ha='center', va='bottom', color='red')
     
     plt.xlim(10, 50)
     plt.ylim(0)

@@ -37,7 +37,7 @@ def run_task_5_2():
             plt.annotate(txt, xy=(mass, h), xytext=(mass, h*1.5),
                          arrowprops=dict(facecolor='red', shrink=0.05), ha='center')
 
-    plt.xlim(10, 65)
+    plt.xlim(10, 60)
     plt.ylim(0)
     plt.title('Acetone Spectrum')
     plt.xlabel('Mass-to-Charge Ratio ($m/z$)')
