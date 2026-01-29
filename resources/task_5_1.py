@@ -54,6 +54,7 @@ def run_task_5_1():
     plt.text(35.5, h*2, '$^{36}Ar^{+}$', ha='center', va='bottom', color='blue')
 
     # -- IMPURITIES --
+    # N2+
     h = get_peak_height_robust(m_ar, i_clean, 28.0, 1.0)
     plt.text(27.5, h*2, '$N_{2}^{+}$', ha='center', va='bottom', color='red')
     

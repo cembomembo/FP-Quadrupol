@@ -24,18 +24,44 @@ def run_task_5_2():
     plt.plot(m, i_norm, color='purple', label='Acetone ($CH_3COCH_3$)')
     
     # Annotate Fragments
-    peaks = [(59, 'M+'), (43.6, 'CH3CO+'), (15.1, 'CH3+')]
-    impurities = [(28, '$N_2^+$')]
+    peaks = [(59, '$M^+$'), (43.6, '$CH_3CO^+$'), (15.1, '$CH_3^+$')]
+    sub_peaks = [(28, '$CO^+&N_2^+$')]
     for mass, txt in peaks:
         h = get_peak_height_robust(m, i_norm, mass, 1.0)
         if h > 0:
-            plt.annotate(txt, xy=(mass, h), xytext=(mass, h*1.5),
-                         arrowprops=dict(facecolor='black', shrink=0.05), ha='center')
-    for mass, txt in impurities:
+            plt.annotate(
+                txt, 
+                xy=(mass, h), 
+                xytext=(0, 30),              # Position text 30 points above the peak
+                textcoords='offset points',  # Use relative offset instead of absolute scaling
+                arrowprops=dict(
+                    arrowstyle='->',         # Slimmer, cleaner arrow head
+                    connectionstyle='arc3',  # Straight line
+                    color='blue',           # Use 'red' for impurities
+                    lw=1.5                   # Line width
+                ),
+                ha='center',
+                va='bottom',
+                fontweight='bold'
+            )
+    for mass, txt in sub_peaks:
         h = get_peak_height_robust(m, i_norm, mass, 1.0)
         if h > 0:
-            plt.annotate(txt, xy=(mass, h), xytext=(mass, h*1.5),
-                         arrowprops=dict(facecolor='red', shrink=0.05), ha='center')
+            plt.annotate(
+                txt, 
+                xy=(mass, h), 
+                xytext=(0, 20),              # Position text 30 points above the peak
+                textcoords='offset points',  # Use relative offset instead of absolute scaling
+                arrowprops=dict(
+                    arrowstyle='->',         # Slimmer, cleaner arrow head
+                    connectionstyle='arc3',  # Straight line
+                    color='teal',           # Use 'red' for impurities
+                    lw=1                  # Line width
+                ),
+                ha='center',
+                va='bottom',
+                fontweight='bold'
+            )
 
     plt.xlim(10, 60)
     plt.ylim(0)
