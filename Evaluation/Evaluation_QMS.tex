@@ -283,7 +283,7 @@ The parameters $(a,q)$ summarize how strongly the electric field acts on a given
 For fixed instrument settings $(U,V,\omega,r_0)$, they scale with the ratio $Q/m$, so that different $m/z$ values correspond to different points in the $(a,q)$ plane.
 Only in certain regions of this parameter plane do the Mathieu solutions stay bounded in both transverse directions, which physically means that the ion oscillations remain finite and transmission through the quadrupole is possible.
 
-\subsection{Stability Diagram and Mass Selection}
+\subsection{Stability Diagram and Mass Selection}\label{sec:working_line}
 
 The Mathieu equations in Eq.~\eqref{eq:mathieu_xy} admit either stable or unstable solutions depending on the parameters $(a,q)$.
 A trajectory is called stable if the transverse oscillations remain bounded, meaning that the ion stays within the free aperture between the rods over the full flight time.
@@ -602,9 +602,32 @@ Figure~\ref{fig:air} contains the air spectrum in the range of 10 to 50$Th$, wit
 \end{figure}
 
 \subsection{Resolution Analysis}
+\subsubsection{Introduction}
+As discussed previously in Section~\ref{sec:working_line}, the working line always intersects the edge of the stability region at the same boundary points $(a_1,b_1)$ and $(a_2,b_2)$, with $b_0/\Delta b=const$. The value $b_0=0.706$ is derived from the solutions to the Mathieu Equations.
+
+Since $m(b)=\frac{2QV}{r_0^2\omega^2b}$, then
+\begin{equation}
+  \frac{m(b_0)}{\Delta m}=\frac{1/b_0}{1/b_2-1/b_1}=R=const
+\end{equation}
+
+It is also important to consider the $U/V$ ratio limit of
+
+\begin{equation}
+  \frac{U}{V}<0.1678
+\end{equation}
+
+Since $R$ remains constant, changing the $U/V$ ratio allows the user to set a specific resolution that remains consistent across the entire mass spectrum.
+
+\subsubsection{Comparison of Resolution Spectrum}
+The mass-to-charge spectrum of air was analyzed using five different resolution settings. An overlay of the five spectrums is shown in Figure~\ref{fig:resolution}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{../resources/task_5_5_resolution_overlay.png}
+  \caption{Comparison of the air mass-to-charge spectrumfor differnet resolution values.}\label{fig:resolution}
+\end{figure}
 
 \begin{itemize}
-  \item Overlay the air spectra for resolution settings VAR = 6 $\rightarrow$ 2 and discuss the qualitative trade-off (peak narrowing vs signal loss)
   \item For selected peaks, determine the FWHM $\Delta m$ and compile a table of $(m,\Delta m)$
   \item Plot $m$ versus $\Delta m$ as requested and extract/compare resolving power trends
 \end{itemize}
