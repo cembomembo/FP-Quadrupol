@@ -126,7 +126,7 @@ def run_task_5_2():
     plt.ylim(0)
     plt.title('Acetone Spectrum')
     plt.xlabel('Mass-to-Charge Ratio ($m/z$)')
-    plt.ylabel('Partial Pressure $1/10^{-6}hPa$')
+    plt.ylabel('Partial Pressure $I/10^{-6}hPa$')
     plt.legend()
     plt.grid(True, alpha=0.5)
     plt.tight_layout()
