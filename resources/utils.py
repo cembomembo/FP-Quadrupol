@@ -46,47 +46,75 @@ def get_peak_height_robust(mass, intensity, target_mass, search_window):
     idx = np.argmin(np.abs(peak_masses - target_mass))
     return float(i_local[peaks[idx]])
 
-def calculate_fwhm(mass, intensity, target_mass, window=1.5):
+def calculate_fwhm_robust(mass, intensity, target_mass, window=1.5):
     """
-    Calculates Full Width at Half Maximum (FWHM) for a peak near target_mass.
-    Returns: (peak_mass, fwhm, peak_height)
+    Calculates FWHM robustly by:
+    1. Correcting for local baseline offset.
+    2. Searching outwards from the peak center to avoid distant noise.
+    3. Using linear interpolation for sub-step precision.
     """
     # 1. Mask data to local area
     mask = (mass > target_mass - window) & (mass < target_mass + window)
-    if not np.any(mask): return None, None, None
+    if not np.any(mask): 
+        return None, None, None
     
     m_loc = mass[mask]
     i_loc = intensity[mask]
     
-    # 2. Find Max
-    i_max = np.max(i_loc)
-    if i_max == 0: return None, None, None
-    m_max = m_loc[np.argmax(i_loc)]
+    # 2. Find Peak Maximum and Location
+    idx_max = np.argmax(i_loc)
+    i_max = i_loc[idx_max]
+    m_max = m_loc[idx_max]
     
-    # 3. Find Half Max
-    half_max = i_max / 2.0
+    # 3. Determine Local Baseline (Crucial for correct width)
+    # We assume the lowest point in the window is the baseline
+    i_base = np.min(i_loc)
     
-    # 4. Find crossings (Linear Interpolation)
-    # We look for where intensity - half_max changes sign
-    diff = i_loc - half_max
-    crossings = np.where(np.diff(np.sign(diff)))[0]
+    # Calculate Half-Max relative to baseline
+    # Level = Baseline + (Height / 2)
+    half_max_level = i_base + (i_max - i_base) / 2.0
     
-    if len(crossings) < 2:
-        return m_max, 0.0, i_max # Peak too narrow to resolve
-        
-    # Take the two crossings surrounding the peak
-    # (Simplified: just take first and last in window if multiple noise crossings)
-    left_idx = crossings[0]
-    right_idx = crossings[-1]
+    # 4. Search LEFT from peak center
+    # We flip the left side array to search "backwards" from the peak
+    left_side_i = i_loc[:idx_max][::-1]
+    left_side_m = m_loc[:idx_max][::-1]
     
-    def get_x_at_y(idx, target_y):
-        y1, y2 = i_loc[idx], i_loc[idx+1]
-        x1, x2 = m_loc[idx], m_loc[idx+1]
-        # Linear interp formula
-        if y2 == y1: return x1
-        return x1 + (target_y - y1) * (x2 - x1) / (y2 - y1)
+    # Find where it drops below half_max
+    below_half_left = np.where(left_side_i < half_max_level)[0]
+    if len(below_half_left) == 0:
+        return m_max, None, i_max # Peak is cut off at edge
+    
+    # Get indices for interpolation (closest points bracketing the level)
+    idx_L2 = below_half_left[0]      # First point below level (in flipped array)
+    idx_L1 = idx_L2 - 1              # The point just before it (still above level)
+    
+    # Interpolate Left Edge
+    if idx_L2 == 0: # Peak starts below half max immediately (rare)
+        m_left = left_side_m[0]
+    else:
+        y1, y2 = left_side_i[idx_L1], left_side_i[idx_L2]
+        x1, x2 = left_side_m[idx_L1], left_side_m[idx_L2]
+        m_left = x1 + (half_max_level - y1) * (x2 - x1) / (y2 - y1)
 
-    m_left = get_x_at_y(left_idx, half_max)
-    m_right = get_x_at_y(right_idx, half_max)
+    # 5. Search RIGHT from peak center
+    right_side_i = i_loc[idx_max:]
+    right_side_m = m_loc[idx_max:]
     
-    return m_max, (m_right - m_left), i_max
+    below_half_right = np.where(right_side_i < half_max_level)[0]
+    if len(below_half_right) == 0:
+        return m_max, None, i_max
+        
+    idx_R2 = below_half_right[0]
+    idx_R1 = idx_R2 - 1
+    
+    # Interpolate Right Edge
+    if idx_R2 == 0:
+        m_right = right_side_m[0]
+    else:
+        y1, y2 = right_side_i[idx_R1], right_side_i[idx_R2]
+        x1, x2 = right_side_m[idx_R1], right_side_m[idx_R2]
+        m_right = x1 + (half_max_level - y1) * (x2 - x1) / (y2 - y1)
+
+    # 6. Result
+    fwhm = m_right - m_left
+    return m_max, fwhm, i_max

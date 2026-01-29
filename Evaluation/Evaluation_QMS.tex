@@ -10,6 +10,7 @@
 \setlength{\parskip}{0.8em}      % space between paragraphs
 \setstretch{1.2}                 % line spacing
 \usepackage{tocloft}             % section spacing in ToC
+\usepackage{booktabs}
 \setlength{\cftbeforesecskip}{10pt}
 \setlength{\cftbeforesubsecskip}{4pt}
 \usepackage{titlesec}            % section title spacing
@@ -598,7 +599,7 @@ Figure~\ref{fig:air} contains the air spectrum in the range of 10 to 50$Th$, wit
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{../resources/figures/QMS_Beispiel-Spektren/QMS_Beispiel-Spektren-5.png}
-  \caption{Reference spectrum for the air spectrum.}\label{fig:air-reference}
+  \caption{Reference spectrum for air.}\label{fig:air-reference}
 \end{figure}
 
 \subsection{Resolution Analysis}
@@ -627,8 +628,26 @@ The mass-to-charge spectrum of air was analyzed using five different resolution 
   \caption{Comparison of the air mass-to-charge spectrumfor differnet resolution values.}\label{fig:resolution}
 \end{figure}
 
+\begin{table}[ht]
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{l|c|cc|cc|cc|cc|cc}
+      \toprule
+      \textbf{Peak} & \textbf{Mass}& \multicolumn{2}{c|}{\textbf{Res 6}} & \multicolumn{2}{c|}{\textbf{Res 5}} & \multicolumn{2}{c|}{\textbf{Res 4}} & \multicolumn{2}{c|}{\textbf{Res 3}} & \multicolumn{2}{c}{\textbf{Res 2}} \\
+      & $m$ [amu] & $\Delta m$ [Th] & $R$ & $\Delta m$ [Th] & $R$ & $\Delta m$ [Th] & $R$ & $\Delta m$ [Th] & $R$ & $\Delta m$ [Th] & $R$ \\
+      \midrule
+      $N^{+}$    & 14 & 0.2481 & 56.83 & 0.4759 & 29.78 & 0.6712 & 21.14 & 0.9961 & 13.98 & 1.2838 & 10.88 \\
+      $H_2O^{+}$ & 18 & 0.2147 & 85.35 & 0.5131 & 35.19 & 0.6401 & 28.28 & 1.3820 & 12.81 & 1.5521 & 11.13 \\
+      $N_2^{+}$  & 28 & 0.2253 & 126.03 & 0.6113 & 46.16 & 1.0031 & 27.92 & 1.5824 & 17.57 & 2.2132 & 12.42 \\
+      $O_2^{+}$  & 32 & 0.2468 & 131.87 & 0.6598 & 48.85 & 1.0130 & 31.72 & 1.7287 & 18.40 & 2.5702 & 12.01 \\
+      $Ar^{+}$   & 40 & 0.0341 & 1139.64 & 0.0498 & 824.39 & 0.3106 & 128.50 & 1.4243 & 28.16 & 1.0973 & 36.24 \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{FWHM ($\Delta m$) and Resolving Power ($R$) for Air Peaks across Resolution Settings.}\label{tab:fwhm_results}
+\end{table}
+
 \begin{itemize}
-  \item For selected peaks, determine the FWHM $\Delta m$ and compile a table of $(m,\Delta m)$
   \item Plot $m$ versus $\Delta m$ as requested and extract/compare resolving power trends
 \end{itemize}
 
