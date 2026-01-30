@@ -72,7 +72,7 @@ def run_task_6_analysis():
             
             # 1. Calculate FWHM
             # We use a slightly wider window (2.0) because peaks get broad at high U_B
-            meas_m, fwhm, _ = calculate_fwhm_robust(m, i_raw, target_m, window=1.1)
+            meas_m, fwhm, _ = calculate_fwhm_robust(m, i_raw, target_m, window=1.2)
             
             # 2. Calculate Oscillations (n)
             n_osc = calculate_oscillations(u_b, target_m)

@@ -7,7 +7,7 @@ def plot_resolution_vs_oscillations():
     print("--- TASK 6: Plotting Resolution vs. Oscillations ---")
     
     # 1. Load Data
-    csv_file = 'task_6_fwhm_results.csv'
+    csv_file = 'task_6_fwhm_results_final.csv'
     try:
         df = pd.read_csv(csv_file)
     except FileNotFoundError:
