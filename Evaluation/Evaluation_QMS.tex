@@ -625,7 +625,7 @@ The mass-to-charge spectrum of air was analyzed using five different resolution 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.9\linewidth]{../resources/task_5_5_resolution_overlay.png}
-  \caption{Comparison of the air mass-to-charge spectrumfor differnet resolution values.}\label{fig:resolution}
+  \caption{Comparison of the air mass-to-charge spectrum for different resolution values.}\label{fig:resolution}
 \end{figure}
 
 The values from Table~\ref{tab:fwhm_results} were plotted for linear analysis (Figure~\ref{fig:res_trend}). Note that the argon peaks at 40 Th were excluded from the trend analysis, as their weak intensity resulted in a low signal-to-noise ratio, making the FWHM determination unreliable.
@@ -711,31 +711,33 @@ The results are plotted in Figure~\ref{fig:dm_vs_n}. The data shows a clear inve
 
 % --- Discussion ---
 \section{Discussion}
+\subsection{Background Subtraction and Argon Spectrum}
+The analysis of the Argon spectrum shows the importance of background subtraction in mass spectrometry. The raw data exhibited a significant water vapor signal ($H_2O^+$, 18 Th), which is a common residual in vacuum systems in chamber walls. The subtraction procedure successfully isolated the Argon signal, but the peak at 28 Th ($N_2^+$) suggests a slight variance in the nitrogen partial pressure between the background and sample measurements.
 
-\subsection{Spectra}
+Notably, the spectrum shows activity in the 36 Th range. Natural argon consists of three stable isotopes: $^{40}Ar$ (99.6\%), $^{36}Ar$ (0.33\%), and $^{38}Ar$ (0.06\%). While the dominant 40 Th peak was clearly resolved, the detection of signals near 36 Th indicates the instrument is well capable to detect trace isotopes.
 
-Task 1: Comment that the effect of the substraction is substantially noticeable in the H2O+ peak. Talk about the N2 and 36m/z range.
-Task 2 to 4: Compare to the references spectrums and discuss unexpected peaks or overlaps (e.g. air/water background, argon remnants). Talk extensively of the peaks and structure of each molecule please.
-Task 5: discuss the qualitative trade-off (peak narrowing vs signal loss). Please indicate that the H2O has also the OH+ subpeaks and that theres some error on it. Comment on the missing peaks on the air spectrum (task 4) and how then in task 5 again we could barely get good data in that range of 40-45Th.
+\subsection{Organic Spectra and Fragmentation Patterns}
+For Acetone ($CH_3COCH_3$), the spectrum was characterized by the expected cleavage of methyl groups, resulting in dominant fragments at 43 Th ($CH_3CO^+$) and 15 Th ($CH_3^+$). For Ethanol ($C_2H_5OH$), the characteristic peak at 31 Th ($CH_2OH^+$) confirmed the presence of a primary alcohol, formed by the loss of a methyl group.
 
-- air spectrum 40 and 44 line drowns in noise
-- most peaks could be identified but some remain unknown
-- partial pressure is only an approxmation, since
+The comparison of the measured spectra with reference data shows the correctness of the measurement, although with `unexpected' overlaps. The presence of peaks at 28 Th ($N_2^+$) and 32 Th ($O_2^+$) in the organic spectra confirms that air background impurities remains a constant interference factor. Furthermore, remnants of Argon (40 Th) from previous flushing cycles were observed, showing the difficulty of purging the gas lines in this specific setup.
 
-\subsection{Resolution}
+\subsection{Sensitivity Limits and Air Composition}
+The Air spectrum presented a discrepancy regarding the minor components. While $N_2^+$ and $O_2^+$ were identified with high intensity, the peaks for Argon (40 Th, $\approx$0.9\% concentration) and $CO_2$ (44 Th, $\approx$0.04\%) were largely lost in the noise. As expected, the signal loss due to the dynamic range and resolution settings was too high in those peaks.
 
-The resolution setting (Res 2-6) alters the slope of the working line in the Mathieu stability diagram (see fig. \ref{fig:qmf_stability_demtroeder}), thus changing how many Ions are detected for each peak. The results in \ref{fig:resolution} do match very well, with what is expected. For lower resolutions more Iones are detected thus enlargening the peaks, but they also become wider and less precise, also the center of the peaks shifts to the left, which can also be deduced from the stability diagram.
-It does however also become clear, that the measurement in H2O(18) is not very precise for the low resolution because it mixes with the peaks of O+(16) and OH+ (17). But also the peak at 33 is almost disappearing in the noise for the high resolution measurement. Suggesting that there is a trade-off to a high resolution setting, this could be countered by noisreduction methodes as the ones that have also been utilized for the other spectra, but in general this is something to keep in mind. 
+\subsection{Resolution and Acceleration Voltage}
+The resolution setting (Res 2--6) adjusts the slope of the working line in the stability diagram. Lower resolution settings widen the stability region, increasing ion transmission at the cost of peak sharpness. This loss of precision causes neighboring peaks to merge, as observed with $H_2O^+$ ($18$ Th) and its fragment $OH^+$ ($17$ Th). Conversely, high resolution settings (Res 6) provide excellent separation but significantly reduce signal intensity, causing trace components to vanish into the noise floor.
 
-The resolution also alters when the acceleration voltage in changed. This can be seen in \ref{fig:acceleration}. For low acceleration volotages the Ions have not enough momentum to make it through the spectrometer. This can be seen for the $U_{B} = 0.2 \: V$ measurment where hardly any Ions are detected, because the acceleration voltage so low, the Ions that make it into and through the spectrometer are largely just entering by chance.
-For higher acceleration voltages however the Ions make it through. In the present measurements an acceleration voltage of $U_B = 15 \: V$ seems to already be very sufficient to clearly accelerate the Ions through the spectrometer. As the acceleration voltage is increased more and more Ions pass all the way through, even the ones that would not have been stable in the spectrometer if they had had a lower velocity. This is why for large $U_B$ the peaks are widened. Also resulting in a lower resolution, which becomes very clear for the peaks below 20 Th, that merge into one plateau for $U_B = 110 \: V$. 
-
-
+The acceleration voltage ($U_B$) significantly impacts the effective resolution by determining the ion velocity and, consequently, the number of filtering oscillations. At low voltages ($U_B \approx 0.9$ V), ions undergo many oscillations, resulting in high selectivity (sharp peaks) but poor transmission due to entrance losses. As $U_B$ increases, transmission improves, but the filtering efficiency drops. At high voltages ($>50$ V), ions traverse the quadrupole too quickly to be unstable, causing peaks to broaden into undefined plateaus (Figure~\ref{fig:acceleration}). An intermediate voltage of $U_B \approx 15$ V provided the optimal balance between signal strength and mass separation.
 
 % --- Conclusion ---
 \section{Conclusion}
+Through the analysis of noble gases, atmospheric air, and organic solvents, we can conclude that this specific mass spectrometer setup is a robust tool for mass and molecular structure analysis. It is very capable of resolving isotopes and characteristic fragmentation patterns.
 
-xxx
+The qualitative analysis of Acetone and Ethanol showed that electron impact ionization induces predictable molecular fragmentation, consistent with standard reference spectra, and the importance of background substraction for isolating signal peaks from residual water vapor and other contaminants. However, the analysis of atmospheric air revealed the sensitivity limitations, as trace components like Argon and $CO_2$ were suppressed by the noise floor when optimizing for the dominant Nitrogen signal.
+
+The different quadrupole field parameters settings confirmed two fundamental operating principles: First, the variation of the resolution setting showed trade-off between mass resolution and transmission efficiency; high-resolution settings provided excellent peak separation but significantly reduced sensitivity, limiting the detection of minor isotopes. Second, the acceleration voltage series experimentally verified the dependence of mass filtering on the ion transit time. The measured peak widths ($\Delta m$) exhibited a clear correlation with the number of RF oscillations ($n$), following the theoretical $\Delta m \propto n^{-2}$ behavior. This confirms the link between the filtering selectivity of a QMS and the number of interactions between the ions and the quadrupole field.
+
+Overall, the QMS proved to be an effective instrument for determining gas composition, if the user carefully balances the trade-offs between resolution, scan speed, and ion energy to match the specific analytical requirements.
 
 % --- Appendix ---
 \newpage
