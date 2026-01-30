@@ -17,7 +17,7 @@ FILES = [
 
 # Constants
 GAIN = 1e-10
-U_FR = 113 # Volts
+U_FR = 113.1 # Volts
 
 
 def run_acceleration_overlay():

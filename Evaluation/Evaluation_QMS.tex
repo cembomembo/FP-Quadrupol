@@ -656,15 +656,17 @@ The values from Table~\ref{tab:fwhm_results} were plotted for linear analysis (F
 \end{figure}
 
 \subsection{Acceleration-Voltage Analysis}
+The acceleration voltage $U_B = U_{FR} - U_{FA}$ was varied by adjusting the Field Axis potential ($U_{FA}$) while maintaining a constant Formation Region potential ($U_{FR} \approx 113.1$\,V).
+
+Figure~\ref{fig:acceleration} shows the overlay of air spectra recorded at different acceleration voltages. The data demonstrates a clear trade-off between resolution and transmission: lower acceleration voltages (e.g., $U_B \approx 0.9$\,V) result in significantly sharper peaks (higher resolution) but reduced signal intensity. Conversely, higher acceleration voltages increase ion transmission but lead to substantial peak broadening.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{../resources/task_5_6_acceleration_overlay.png}
-  \caption{Comparision of different $U_{FA}$ voltages for the air spectrum measurement at normalized pressure. The effect of the electron acceleration in the signal is clearly visible.}\label{fig:acceleration}
+  \caption{Comparision of different $U_{FA}$ voltages for the air spectra measurements at normalized pressure. The effect of the electron acceleration in the signal is clearly visible, with lower $U_B$ values correspond to higher resolution (narrower peaks) but lower signal intensity.}\label{fig:acceleration}
 \end{figure}
 
 \begin{itemize}
-  \item Overlay the air spectra for the used $U_\mathrm{FA}$ values (112.9, 98.0, 83.0, 63.0, 43.0, 23.0, 3.0 V) and compute $U_\mathrm{B}=U_\mathrm{FR}-U_\mathrm{FA}$ for each case
   \item For two chosen masses, extract $\Delta m$ (FWHM) at each $U_\mathrm{B}$
   \item Convert each setting to an ion oscillation count in the rods using the given rod length $l=0.1$ m and RF frequency $\nu=2.5$ MHz, then plot $\Delta m$ versus number of oscillations for both masses
 \end{itemize}
@@ -673,7 +675,6 @@ The values from Table~\ref{tab:fwhm_results} were plotted for linear analysis (F
 \section{Discussion}
 
 \subsection{Spectra}
-Hey one very important thing is to please
 
 Task 1: Comment that the effect of the substraction is substantially noticeable in the H2O+ peak. Talk about the N2 and 36m/z range.
 Task 2 to 4: Compare to the references spectrums and discuss unexpected peaks or overlaps (e.g. air/water background, argon remnants). Talk extensively of the peaks and structure of each molecule please.
@@ -683,7 +684,7 @@ Task 5: discuss the qualitative trade-off (peak narrowing vs signal loss). Pleas
 - partial pressure is only an approxmation, since
 
 \subsection{Resolution}
-also comment that the measurement in H2O(18) is not very precise in low res bc it mixes with the peaks of O+(16) and OH+ (17)
+Hey one very important thing is to please also comment that the measurement in H2O(18) is not very precise in low res bc it mixes with the peaks of O+(16) and OH+ (17)
 
 - broadening of the peaks with lower resolution/working line
 - but also higher peaks, this is expected.
