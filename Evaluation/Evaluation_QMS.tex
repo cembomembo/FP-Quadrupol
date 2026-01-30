@@ -543,7 +543,7 @@ After completing all measurements, emission was switched to \texttt{OFF} first, 
 % --- Results ---
 \section{Results}
 \subsection{Argon Spectrum}
-A measurement of the background spectrum was recorded to implement a background subtraction to the recorded spectrum of the ionized Argon. First, both spectrum were normalized by pressure and then the background spectrum was subtracted from the Argon spectrum (Figure~\ref{fig:argon}). The effect of the substraction is substantially noticeable in the $H_2O^+$ peak ($18Th$). We can appreciate potential impurities around the $28Th$ range, attributed to $N_2^+$. The comparison to the reference spectrum confirms the expected peaks found in our data (Figure~\ref{fig:argon-reference}).
+A measurement of the background spectrum was recorded to implement a background subtraction to the recorded spectrum of the ionized Argon. First, both spectra were normalized by pressure and then the background was subtracted from the Argon spectrum (Figure~\ref{fig:argon}). The effect of the substraction is substantially noticeable in the $H_2O^+$ peak ($18Th$). We can appreciate potential impurities around the $28Th$ range, attributed to $N_2^+$. The comparison to the reference spectrum confirms the expected peaks found in our data (Figure~\ref{fig:argon-reference}).
 
 \begin{figure}[htbp]
   \centering
@@ -628,7 +628,7 @@ The mass-to-charge spectrum of air was analyzed using five different resolution 
   \caption{Comparison of the air mass-to-charge spectrumfor differnet resolution values.}\label{fig:resolution}
 \end{figure}
 
-The values from Table~\ref{tab:fwhm_results} were then plotted, along with the respective working lines for each spectrum (Figure~). For the linear analysis and plot, the argon peaks at 40Th were removed, since their intensity was too weak in our measurements and their FWHM was very hard to measure; we deemed its signal-to-noise ratio too high.
+The values from Table~\ref{tab:fwhm_results} were plotted for linear analysis (Figure~\ref{fig:res_trend}). Note that the argon peaks at 40 Th were excluded from the trend analysis, as their weak intensity resulted in a low signal-to-noise ratio, making the FWHM determination unreliable.
 
 \begin{table}[ht]
   \centering
@@ -652,7 +652,7 @@ The values from Table~\ref{tab:fwhm_results} were then plotted, along with the r
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{../resources/task_5_5_resolution_trend.png}
-  \caption{Comparison of different mass resolution trends. Lower resolutions exhibit a much higher slope in the ratio, while very high resolutions exhibit an almost constant relationship.}
+  \caption{Comparison of mass resolution trends. Lower resolution settings (Res 2, 3) exhibit a strong slope ($\Delta m$ increases with $m$), indicating constant $U/V$ ratio operation. High resolution settings (Res 6) show a flatter trend, indicating constant peak width operation.}\label{fig:res_trend}
 \end{figure}
 
 \subsection{Acceleration-Voltage Series in Air (Variation of \texorpdfstring{$U_\mathrm{FA}$}{})}
