@@ -36,19 +36,6 @@ def plot_resolution_vs_oscillations():
         
         # Plot Measured Data
         plt.plot(n_data, dm_data, 'o', label=f'{ion} Measured', color=colors[ion], zorder=3)
-        
-        # Fit and Plot Theory Curve
-        try:
-            # We constrain the fit to be positive
-            popt, _ = curve_fit(theory_model, n_data, dm_data, p0=[1000])
-            
-            n_fit = np.linspace(n_data.min(), n_data.max(), 100)
-            dm_fit = theory_model(n_fit, *popt)
-            
-            plt.plot(n_fit, dm_fit, '--', color=colors[ion], alpha=0.6, 
-                     label=rf'{ion} Fit ($\Delta m \propto n^{{-2}}$)')
-        except Exception as e:
-            print(f"Fit failed for {ion}: {e}")
 
     # 4. Formatting
     plt.title(r'Dependence of Peak Width on Ion Oscillations ($\Delta m$ vs. $n$)')
