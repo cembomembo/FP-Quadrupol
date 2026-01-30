@@ -680,10 +680,34 @@ Figure~\ref{fig:acceleration} shows the overlay of air spectra recorded at diffe
   \caption{Comparision of different $U_{FA}$ voltages for the air spectra measurements at normalized pressure. The effect of the electron acceleration in the signal is clearly visible, with lower $U_B$ values correspond to higher resolution (narrower peaks) but lower signal intensity.}\label{fig:acceleration}
 \end{figure}
 
-\begin{itemize}
-  \item For two chosen masses, extract $\Delta m$ (FWHM) at each $U_\mathrm{B}$
-  \item Convert each setting to an ion oscillation count in the rods using the given rod length $l=0.1$ m and RF frequency $\nu=2.5$ MHz, then plot $\Delta m$ versus number of oscillations for both masses
-\end{itemize}
+To quantitatively evaluate the dependence of the resolution on the ion energy, the FWHM ($\Delta m$) of the $N_2^+$ and $O_2^+$ peaks was extracted for each acceleration voltage $U_B$. For each setting, the number of RF oscillations $n$ performed by the ions was calculated using the relationship $n = \nu \cdot l / v_z$, where $l=0.1$\,m and $\nu=2.5$\,MHz.
+
+The results are plotted in Figure~\ref{fig:dm_vs_n}. The data shows a clear inverse relationship: as the number of oscillations increases (corresponding to lower ion energy), the peak width $\Delta m$ decreases significantly. This confirms that ions spending more time in the quadrupole field undergo more effective mass filtering, resulting in higher resolution.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{cc|cc|cc}
+    \toprule
+    \multicolumn{2}{c|}{\textbf{Voltage Settings}} & \multicolumn{2}{c|}{\textbf{$N_2^+$ ($28$ Th)}} & \multicolumn{2}{c}{\textbf{$O_2^+$ ($32$ Th)}} \\
+    $U_{FA}$ [V] & $U_B$ [V] & $\Delta m$ [Th] & $n$ & $\Delta m$ [Th] & $n$ \\
+    \midrule
+    112.9 & 0.92   & 0.5347 & 99.02 & 0.5265 & 105.86 \\
+    98.0  & 15.83  & 0.5186 & 23.94 & 0.5468 & 25.59  \\
+    83.0  & 30.83  & 0.5656 & 17.15 & 0.5891 & 18.34  \\
+    63.0  & 50.83  & 0.7100 & 13.36 & 0.7068 & 14.28  \\
+    43.0  & 70.83  & 0.8312 & 11.32 & 0.8437 & 12.10  \\
+    23.0  & 90.83  & 0.9284 & 9.99  & 1.0143 & 10.68  \\
+    3.0   & 110.83 & 1.0657 & 9.05  & 1.2754 & 9.67   \\
+    \bottomrule
+  \end{tabular}
+  \caption{Dependence of peak width ($\Delta m$) and number of oscillations ($n$) on the acceleration voltage ($U_B$) for $N_2^+$ and $O_2^+$. The data demonstrates the inverse relationship between ion energy and mass resolution.}\label{tab:fwhm_n_results}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{../resources/task_6_resolution_trend.png}
+  \caption{Relationship between the peak width $\Delta m$ (FWHM) and the number of RF oscillations $n$ for $N_2^+$ and $O_2^+$.}\label{fig:dm_vs_n}
+\end{figure}
 
 % --- Discussion ---
 \section{Discussion}
