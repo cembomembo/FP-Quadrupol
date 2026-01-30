@@ -27,7 +27,7 @@ def run_task_5_2():
     # 1. Main Acetone Peaks (Parent + Base + Methyl)
     # These get prominent labels (Black, bold)
     peaks = [
-        (59.0, '$M^+$'),             # Acetone Parent (CH3-CO-CH3+)
+        (59.0, '$CH_3COCH_3^+ (M^+)$'),             # Acetone Parent (CH3-CO-CH3+)
         (43.6, '$CH_3CO^+$'),        # Acetone Base Peak
         (15.1, '$CH_3^+$')           # Methyl Group
     ]
@@ -71,7 +71,7 @@ def run_task_5_2():
                 txt, 
                 xy=(mass, h), 
                 color='blue',
-                xytext=(-10, 30),              # Position text 30 points above the peak
+                xytext=(-30, 30),              # Position text 30 points above the peak
                 textcoords='offset points',  # Use relative offset instead of absolute scaling
                 arrowprops=dict(
                     arrowstyle='->',         # Slimmer, cleaner arrow head
@@ -126,8 +126,8 @@ def run_task_5_2():
     plt.xlim(10, 60)
     plt.ylim(0)
     plt.title('Acetone Spectrum')
-    plt.xlabel('m/z ($Th$)')
-    plt.ylabel('Partial Pressure $10^{-6}hPa$')
+    plt.xlabel('m/z $[Th]$')
+    plt.ylabel('Partial Pressure $[10^{-6}hPa]$')
     plt.legend()
     plt.grid(True, alpha=0.5)
     plt.tight_layout()

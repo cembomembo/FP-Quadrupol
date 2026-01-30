@@ -26,7 +26,7 @@ def run_task_5_3():
     # --- PEAK DATA: (Mass, Label, Is_Impurity) ---
     peak_data = [
         # --- C2HxO+ Group (46-41) ---
-        (46.7, '$CH_3CH_2OH^+$)', False), # Parent
+        (46.7, '$CH_3CH_2OH^+$ (From Acetone)', True), # Parent
         (45.65, '$C_2H_5O^+$', False),          # M - H
         (44.6, '$C_2H_4O^+$', False),
         (43.6, '$C_2H_3O^+$', False),
@@ -115,8 +115,8 @@ def run_task_5_3():
     plt.xlim(10, 50)
     plt.ylim(0)
     plt.title('Ethanol Spectrum')    
-    plt.xlabel('m/z ($Th$)')
-    plt.ylabel('Partial Pressure $10^{-6}hPa$')
+    plt.xlabel('m/z $[Th]$')
+    plt.ylabel('Partial Pressure $[10^{-6}hPa]$')
     plt.legend()
     plt.grid(True, alpha=0.4)
     plt.tight_layout()

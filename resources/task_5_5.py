@@ -36,8 +36,8 @@ def run_resolution_overlay():
         plt.plot(m, i_normalized, label=label, lw=1.2, alpha=0.8)
 
     # Formatting
-    plt.xlabel('m/z ($Th$)')
-    plt.ylabel('Partial Pressure $10^{-6}hPa$')
+    plt.xlabel('m/z $[Th]$')
+    plt.ylabel('Partial Pressure $[10^{-6}hPa]$')
     plt.xlim(10,48)
     plt.ylim(0)
     plt.legend()

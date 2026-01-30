@@ -67,8 +67,8 @@ def run_task_5_4():
 
     plt.xlim(10, 50)
     plt.title('Air Spectrum Composition')
-    plt.xlabel('m/z ($Th$)')
-    plt.ylabel('Partial Pressure $10^{-6}hPa$')
+    plt.xlabel('m/z $[Th]$')
+    plt.ylabel('Partial Pressure $[10^{-6}hPa]$')
     plt.legend()
     plt.grid(True, alpha=0.4)
     plt.tight_layout()
