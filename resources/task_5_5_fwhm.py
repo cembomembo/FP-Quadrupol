@@ -37,7 +37,7 @@ def run_fwhm_table_generation():
 
         for peak_name, target in TARGET_PEAKS.items():
             # Calling your robust function from utils
-            actual_m, fwhm, _ = calculate_fwhm_robust(m, i_amps, target, window=1.9)
+            actual_m, fwhm, _ = calculate_fwhm_robust(m, i_amps, target, window=0.8)
             
             if fwhm and fwhm > 0:
                 results.append({
@@ -52,8 +52,6 @@ def run_fwhm_table_generation():
     df = pd.DataFrame(results)
     output_name = 'task_5_5_fwhm_table.csv'
     df.to_csv(output_name, index=False)
-    
-    print(f"  > Table saved to: {output_name}")
     print(df.to_string(index=False)) # Display in console for a quick check
 
 if __name__ == "__main__":
