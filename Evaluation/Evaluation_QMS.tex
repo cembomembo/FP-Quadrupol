@@ -603,7 +603,7 @@ Figure~\ref{fig:air} contains the air spectrum in the range of 10 to 50$Th$, wit
 \end{figure}
 
 \subsection{Resolution Analysis}
-\subsubsection{Introduction}
+\subsubsection{Theoretical Resolving Power}
 As discussed previously in Section~\ref{sec:working_line}, the working line always intersects the edge of the stability region at the same boundary points $(a_1,b_1)$ and $(a_2,b_2)$, with $b_0/\Delta b=const$. The value $b_0=0.706$ is derived from the solutions to the Mathieu Equations.
 
 Since $m(b)=\frac{2QV}{r_0^2\omega^2b}$, then
@@ -619,7 +619,7 @@ It is also important to consider the $U/V$ ratio limit of
 
 Since $R$ remains constant, changing the $U/V$ ratio allows the user to set a specific resolution that remains consistent across the entire mass spectrum.
 
-\subsubsection{Comparison of Resolution Spectrum}
+\subsubsection{Comparison of spectra for different resolution settings}
 The mass-to-charge spectrum of air was analyzed using five different resolution settings. An overlay of the five spectra is shown in Figure~\ref{fig:resolution}. Higher resolution measurements exhibit much narrower and smaller intensity peaks than measurements with lower resolution settings. The selection of peaks and the determination of their Full Width at Half Maximum (FWHM) were performed computationally to ensure consistent baseline handling across different sensitivity ranges. Quantitatively, we compared the Resolving Power and peak width of each measurement, as shown in Table~\ref{tab:fwhm_results}.
 
 \begin{figure}[htbp]
@@ -656,6 +656,20 @@ The values from Table~\ref{tab:fwhm_results} were plotted for linear analysis (F
 \end{figure}
 
 \subsection{Acceleration-Voltage Analysis}
+\subsubsection{Influence of Ion Velocity on Resolution}
+The acceleration voltage $U_B$ controls ion velocity, establishing an inverse relationship between resolution and transmission. Lower velocities increase the transit time, subjecting ions to more RF field oscillations; this improves the filtering of unstable trajectories and sharpens peaks, albeit with reduced signal intensity. Conversely, higher velocities allow unstable ions to reach the detector, causing peak broadening. Notably, unlike altering the DC/RF ratio, varying $U_B$ affects peak width without shifting peak positions.
+
+To quantify this effect, the ion velocity $v$ can be derived from the kinetic energy provided by the acceleration voltage:
+\begin{equation}
+  \frac{1}{2}mv^2 = e U_B \implies v = \sqrt{\frac{2e U_B}{m}}
+\end{equation}
+The separation capability of the quadrupole is directly related to the number of oscillations $N$ an ion experiences within the RF field. This is given by the product of the RF frequency $\nu$ and the flight time $t$:
+\begin{equation}
+  N = \nu t = \nu \frac{l}{v} = \nu l \sqrt{\frac{m}{2e U_B}}
+\end{equation}
+where $l$ is the length of the rod system and $\nu$ is the frequency\cite{QMSAnleitung}. This relationship ($N \propto 1/\sqrt{U_B}$) mathematically confirms that lower acceleration voltages increase the number of oscillations $N$, thereby improving the filtering efficiency and resolution as unstable ions are more effectively removed.
+
+\subsubsection{Comparison of spectra for different field axis potentials}
 The acceleration voltage $U_B = U_{FR} - U_{FA}$ was varied by adjusting the Field Axis potential ($U_{FA}$) while maintaining a constant Formation Region potential ($U_{FR} \approx 113.1$\,V).
 
 Figure~\ref{fig:acceleration} shows the overlay of air spectra recorded at different acceleration voltages. The data demonstrates a clear trade-off between resolution and transmission: lower acceleration voltages (e.g., $U_B \approx 0.9$\,V) result in significantly sharper peaks (higher resolution) but reduced signal intensity. Conversely, higher acceleration voltages increase ion transmission but lead to substantial peak broadening.
